@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="Palitra.Palette"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Palitra.CustomElements"
+             xmlns:localViewModel = "clr-namespace:Palitra"
+             mc:Ignorable="d"
+             d:DesignHeight="135" d:DesignWidth="220">
+
+    <UserControl.Resources>
+        <localViewModel:PaletteViewModel x:Key = "ViewModel"/>
+    </UserControl.Resources>
+    
+    <Grid Background="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <DockPanel x:Name="RedPanel" Margin="0 5 0 0" >
+                <Label>Красный</Label>
+                <local:NumberBox x:Name="RedBox" Text="{Binding Red, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Source={StaticResource ViewModel}}" Width="40" HorizontalAlignment="Right" CommandManager.PreviewExecuted="RedBox_PreviewExecuted"/>
+            </DockPanel>
+
+            <DockPanel x:Name="GreenPanel" Margin="0 5 0 0" >
+                <Label>Зеленый</Label>
+                <local:NumberBox x:Name="GreenBox" Text="{Binding Green, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, Source={StaticResource ViewModel}}" Width="40" HorizontalAlignment="Right" CommandManager.PreviewExecuted="GreenBox_PreviewExecuted"/>
+            </DockPanel>
+
+            <DockPanel x:Name="BluePanel" Margin="0 5 0 0">
+                <Label>Синий</Label>
+                <local:NumberBox  x:Name="BlueBox" Text="{Binding Blue, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, Source={StaticResource ViewModel}}" Width="40" HorizontalAlignment="Right" CommandManager.PreviewExecuted="BlueBox_PreviewExecuted"/>
+            </DockPanel>
+
+            <DockPanel x:Name="HexPanel"  Margin="0 5 0 0">
+                <Label>HEX</Label>
+                <local:HexBox x:Name="HexBox" Text="{Binding Hex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Source={StaticResource ViewModel}}" Width="60" HorizontalAlignment="Right" CommandManager.PreviewExecuted="HexBox_PreviewExecuted"/>
+            </DockPanel>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Margin="10 10 10 10" Background="{Binding CurrentColor, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,Source={StaticResource ViewModel} }" Width="100" Height="100">
+        </StackPanel>
+
+    </Grid>
+</UserControl>

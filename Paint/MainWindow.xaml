@@ -1,0 +1,136 @@
+﻿<Window x:Class="Paint.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:avalondock="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:local="clr-namespace:Paint"
+        mc:Ignorable="d"
+        Closing="Window_Closing"
+        Title="Paint" Height="600" Width="1200">
+
+    <Window.Resources>
+        <Style x:Key="ButtonRadioButtonStyle" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource {x:Type ToggleButton}}">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="False">
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="#FF2F2FEA" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding MenuItem_NewFile_Gesture}" Gesture="CTRL+N"></KeyBinding>
+        
+    </Window.InputBindings>
+
+
+    <Grid>  
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" MinHeight="30"/>
+            <RowDefinition Height="30" MinHeight="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        
+
+        <avalondock:DockingManager Grid.Row="2">
+
+            <avalondock:DockingManager.Theme>
+
+                <avalondock:VS2010Theme></avalondock:VS2010Theme>
+                
+            </avalondock:DockingManager.Theme>
+
+            <avalondock:LayoutRoot>
+
+                <avalondock:LayoutPanel x:Name="Panel">
+
+                </avalondock:LayoutPanel>
+
+            </avalondock:LayoutRoot>
+
+        </avalondock:DockingManager>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Background="LightGray">
+
+            <RadioButton Style="{DynamicResource ButtonRadioButtonStyle}" GroupName="Instruments" Width="30" Height="Auto" Background="Transparent" Click="Button_Pen_Click">
+                <Image Source="\Images\Brush.png" Stretch="Fill"/>
+            </RadioButton>
+
+            <RadioButton Style="{DynamicResource ButtonRadioButtonStyle}" GroupName="Instruments" Width="30" Height="Auto" Background="Transparent" Click="Button_Line_Click">
+                <Image Source="\Images\Line.png" Stretch="Fill"/>
+            </RadioButton>
+
+            <RadioButton Style="{DynamicResource ButtonRadioButtonStyle}" GroupName="Instruments" Width="30" Height="Auto" Background="Transparent" Click="Button_Ellipse_Click">
+                <Image Source="\Images\Ellipse.png" Stretch="Fill"/>
+            </RadioButton>
+
+            <RadioButton Style="{DynamicResource ButtonRadioButtonStyle}" GroupName="Instruments" Width="30" Height="Auto" Background="Transparent" Click="Button_Star_Click">
+                <Image Source="\Images\Star.png" Stretch="Fill"/>
+            </RadioButton>
+
+            <TextBox x:Name="TextBoxStarInput" PreviewTextInput="TextBox_NumsOnly_PreviewTextInput" Height="Auto" Width="40" > </TextBox>
+
+            <RadioButton Style="{DynamicResource ButtonRadioButtonStyle}" GroupName="Instruments" Width="30" Height="Auto" Background="Transparent" Click="Button_Eraser_Click">
+                <Image Source="Images\Eraser.png" Stretch="Fill"/>
+            </RadioButton>
+
+            <ComboBox Width="40" SelectionChanged = "ComboBox_SelectionChanged" VerticalAlignment="Center">
+                <ComboBoxItem IsSelected="True">
+                    <TextBlock FontSize="18">1</TextBlock>
+                </ComboBoxItem>
+
+                <ComboBoxItem>
+                    <TextBlock FontSize="18">3</TextBlock>
+                </ComboBoxItem>
+
+                <ComboBoxItem>
+                    <TextBlock FontSize="18">5</TextBlock>
+                </ComboBoxItem>
+
+                <ComboBoxItem>
+                    <TextBlock FontSize="18">8</TextBlock>
+                </ComboBoxItem>
+            </ComboBox>
+
+            <xctk:ColorPicker Name="ChangeColor" SelectedColorChanged="ColorPicker_SelectedColorChanged" Width="120" SelectedColor="Black"></xctk:ColorPicker>
+        </StackPanel>
+
+        <StackPanel Background="#EFF4F9" Grid.Row="0" Orientation="Horizontal">
+            <Menu Background="#EFF4F9">
+                <MenuItem Header="Файл" Height="30">
+                    <MenuItem Header="Новый" Click="MenuItem_NewFile_Click"/>
+                    <MenuItem Header="Открыть" Click="MenuItem_OpenFile_Click" />
+                    <MenuItem x:Name="MenuItemSave" Header="Сохранить"></MenuItem>
+                    <MenuItem x:Name="MenuItemSaveAs" Header="Сохранить как ...">
+                        <Menu x:Name="FileDialogueSaver">
+
+                        </Menu>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+
+            <Menu Background="#EFF4F9">
+                <MenuItem Header="Справка" Height="30">
+                    <MenuItem Header="О программе..." Click="MenuItem_Click"/>
+                </MenuItem>
+            </Menu>
+
+        </StackPanel>
+        
+        <StackPanel Background="LightGray" Grid.Row="3">
+            <TextBlock Text="{Binding Path=SynchronizedText}"></TextBlock>
+        </StackPanel>
+
+    </Grid>
+   
+</Window>

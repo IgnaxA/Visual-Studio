@@ -1,0 +1,27 @@
+﻿<Window x:Class="SDLab3.RenameWindows.RenameStudyOfficeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SDLab3.RenameWindows"
+        mc:Ignorable="d"
+        Title="Переименовать запись о сотруднике учебного офиса" Height="220" Width="400" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Чтобы изменить данные о сотруднике, поменяйте поля ниже:"/>
+        <DockPanel Grid.Row="1">
+            <Label Content="Инициалы:" FontSize="20" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="WorkerInitials" HorizontalAlignment="Right" VerticalContentAlignment="Center" Width="250" Margin="0 0 5 0"/>
+        </DockPanel>
+        <DockPanel Grid.Row="2">
+            <Label Content="Email:" FontSize="20" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="Email" HorizontalAlignment="Right" VerticalContentAlignment="Center" Width="250" Margin="0 0 5 0"/>
+        </DockPanel>
+        <Button x:Name="RenameEntry" Content="Переимновать" Grid.Row="3" Width="100" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Click="RenameEntry_Click"/>
+    </Grid>
+</Window>

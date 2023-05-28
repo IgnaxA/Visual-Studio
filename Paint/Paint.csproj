@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Brush.png" />
+    <None Remove="Images\Ellipse.png" />
+    <None Remove="Images\Eraser.png" />
+    <None Remove="Images\Line.png" />
+    <None Remove="Images\Logo.png" />
+    <None Remove="Images\Pen.png" />
+    <None Remove="Images\Star.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dirkster.AvalonDock" Version="4.71.1" />
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Brush.png" />
+    <Resource Include="Images\Ellipse.png" />
+    <Resource Include="Images\Eraser.png" />
+    <Resource Include="Images\Line.png" />
+    <Resource Include="Images\Logo.png" />
+    <Resource Include="Images\Star.png" />
+  </ItemGroup>
+
+</Project>

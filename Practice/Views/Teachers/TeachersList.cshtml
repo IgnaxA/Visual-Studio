@@ -1,0 +1,132 @@
+﻿@model TeachersViewModel
+
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-secondary text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0"></h6>
+            <a href="">Show All</a>
+        </div>
+        <div class="table-responsive" margin-bottom: 100px>
+            <h2>Работа с темами</h2>
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <thead>
+                    <tr class="text-white">
+                        <th scope="col">Формулировка темы</th>
+                        <th scope="col">Ссылка на материалы</th>
+                        <th scope="col">Действия с темой</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var theme in Model.getTeacher.Themes)
+                        {
+                            <tr>
+                                <td>@theme.ThemeFormulation</td>
+                                @{
+                                    Team team = theme.Teams.FirstOrDefault();
+                                    if (team != null)
+                                    {
+                                        <td>@team.MaterialsLink</td>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+                                }
+                                <td>    
+                                    <form asp-controller="Teachers" asp-action="DeleteTheme" method="post" asp-route-themeId="@theme.Id">
+                                        <button class="btn btn-sm btn-primary">Удалить</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <form asp-controller="Teachers" asp-action="CreateTheme" method="get">
+                                    <button class="btn btn-sm btn-primary">Добавить</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            
+        </div>
+        <h1></h1>
+        <div class="table-responsive">
+            <h2>Работа с бригадами</h2>
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                    <thead>
+                        <tr class="text-white">
+                            <th scope="col">Формулировка темы</th>
+                            <th scope="col">Состав бригады</th>
+                            <th scope="col">Действия с членами бригады</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            foreach (var themes in Model.getTeacher.Themes)
+                            {
+                                List<Student> studentsList = new List<Student>();
+                                <tr>
+                                <td>@themes.ThemeFormulation</td>
+                                @{
+                                    Team team = themes.Teams.FirstOrDefault();
+                                    if (team != null)
+                                    {
+                                        int count = 1;
+                                        if (team.Students.Count == 0)
+                                        {
+                                            <td></td>
+                                            <td></td>
+                                            continue;
+                                        }
+                                        Student studentSave = null;
+                                        foreach (var student in team.Students)
+                                        {
+                                            if (count > 1)
+                                            {
+                                                studentsList.Add(student);
+                                                continue;
+                                            }
+                                            studentSave = student;
+                                            <td>@student.Initials</td>
+                                            ++count;
+                                        }
+                                        <td>
+                                            <form asp-controller="Teachers" asp-action="DeleteStudent" method="post" asp-route-studentId="@studentSave.Id">
+                                                <button class="btn btn-sm btn-primary">Удалить</button>
+                                            </form>
+                                        </td>
+                                    }   
+                                    else
+                                    {
+                                        <td></td>
+                                        <td></td>
+                                    }
+                                }
+                                </tr>
+                                foreach (var student in studentsList)
+                                {
+                                    <tr>
+                                        <td></td>
+                                        <td>@student.Initials</td>
+                                        <td>
+                                            
+                                            <form asp-controller="Teachers" asp-action="DeleteStudent" method="post" asp-route-studentId="@student.Id">
+                                                <button class="btn btn-sm btn-primary">Удалить</button>
+                                            </form>
+                                        </td>
+                                        
+                                        <td></td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div>

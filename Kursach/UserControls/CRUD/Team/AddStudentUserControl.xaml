@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="Kursach.UserControls.CRUD.Team.AddStudentUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Kursach.UserControls.CRUD.Team"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Text="Чтобы добавить информацию о студенте, заполните поля ниже:" TextWrapping="Wrap" Margin="10 0 0 0" VerticalAlignment="Center"/>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Инициалы:" VerticalContentAlignment="Center"/>
+        <TextBox Grid.Row="2" Grid.Column="0" x:Name="InitialsTextBox" VerticalContentAlignment="Center" Margin="10" PreviewTextInput="InitialsTextBox_PreviewTextInput" PreviewKeyDown="InitialsTextBox_PreviewKeyDown"/>
+
+        <Label Grid.Row="1" Grid.Column="1" Content="Email:" VerticalContentAlignment="Center"/>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="EmailTextBox" VerticalContentAlignment="Center" Margin="10" />
+
+
+        <Label Grid.Row="1" Grid.Column="2" Content="Курс:" VerticalContentAlignment="Center"/>
+        <ComboBox Grid.Row="2" Grid.Column="2" x:Name="CourseComboBox" VerticalContentAlignment="Center" Margin="10">
+
+        </ComboBox>
+
+
+        <Label Grid.Row="1" Grid.Column="3" Content="Факультет:" VerticalContentAlignment="Center"/>
+        <ComboBox Grid.Row="2" Grid.Column="3" x:Name="FacultyComboBox" VerticalContentAlignment="Center" Margin="10">
+
+        </ComboBox>
+
+        <Label Grid.Row="1" Grid.Column="4" Content="Команда:" VerticalContentAlignment="Center"/>
+        <ComboBox Grid.Row="2" Grid.Column="4" x:Name="TeamComboBox" VerticalContentAlignment="Center" Margin="10">
+
+        </ComboBox>
+
+        <Label Grid.Row="1" Grid.Column="5" Content="Роль:" VerticalContentAlignment="Center"/>
+        <ComboBox Grid.Row="2" Grid.Column="5" x:Name="RoleComboBox" VerticalContentAlignment="Center" Margin="10">
+
+        </ComboBox>
+
+        <TreeView x:Name="StudentsList" Grid.Column="0" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="6" PreviewMouseRightButtonDown="TeamsView_OnPreviewMouseRightButtonDown" ContextMenuOpening="TeamsView_ContextMenuOpening" Background="White">
+            <TreeView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="DeleteNode" Header="Удалить" Click="DeleteNode_Click"/>
+                </ContextMenu>
+            </TreeView.ContextMenu>
+        </TreeView>
+        
+        <Button Grid.Row="6" Grid.Column="0" Content="Добавить студента" Margin="10" VerticalContentAlignment="Center" Click="AddStudentButton_Click">
+
+        </Button>
+        
+        <Button Grid.Row="6" Grid.Column="4" Content="Отменить" Margin="10" VerticalContentAlignment="Center" Click="CancelButton_Click">
+
+        </Button>
+        <Button Grid.Row="6" Grid.Column="5" Content="Сохранить" Margin="10" VerticalContentAlignment="Center" Click="SaveButton_Click">
+
+        </Button>
+    </Grid>
+</UserControl>

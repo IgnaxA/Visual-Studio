@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @await Html.PartialAsync("Partial/MetaPartial")
+
+    @await Html.PartialAsync("Partial/LinksPartial")
+    <!-- Favicon -->
+
+    
+</head>
+
+<body>
+    <div class="container-fluid position-relative d-flex p-0">
+        @await Html.PartialAsync("Partial/SpinnerPartial")
+
+        @await Html.PartialAsync("Partial/SidebarPartial")
+
+        <!-- Content Start -->
+        <div class="content">
+                    @await Html.PartialAsync("Partial/Content/NavBarPartial")
+                    @*@await Html.PartialAsync("Partial/Content/SaleRevenuePartial")*@
+
+                    @*@await Html.PartialAsync("Partial/Content/SaleChartPartial")*@
+
+                    @RenderBody()
+
+                    @*@await Html.PartialAsync("Partial/Content/WidgetPartial")*@
+
+                    @await Html.PartialAsync("Partial/Content/FooterPartial")
+        </div>
+        <!-- Content End -->
+
+        @await Html.PartialAsync("Partial/BackToTopPartial")
+    </div>
+
+    @await Html.PartialAsync("Partial/ScriptPartial")
+</body>
+
+</html>

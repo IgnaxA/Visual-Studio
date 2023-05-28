@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="Palitra.DigitalClock"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Palitra"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="620">
+    <UserControl.Resources>
+        <local:DigitalClockViewModel x:Key="DigitalClockviewModel"/>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <!--<Path Grid.Column="1" Stroke="Black" StrokeThickness="5" Data="M 10 10 L 90 10 M 10 10 L 10 100 M 10 100 L 90 100 M 90 100 L 90 190 M 90 190 L 10 190"/>
+        <Path Grid.Column="1" Stroke="Black" StrokeThickness="5" Data="M 10 10 L 90 10 M 10 10 L 10 190 M 10 100 L 90 100 M 10 190 L 90 190 M 90 100 L 90 190"/>   
+        <Path Grid.Column="3" Stroke="Black" StrokeThickness="5" Data="M 10 10 L 90 10 M 90 10 L 90 100 M 90 100 L 10 100 M 10 100 L 10 190 M 10 190 L 90 190"/>
+        <Path Grid.Column="4" Stroke="Black" StrokeThickness="5" Data="M 10 10 L 90 10 M 90 10 L 90 100 M 90 100 L 10 100 M 90 100 L 90 190 M 90 190 L 10 190"/>
+        <Path Grid.Column="6" Stroke="Black" StrokeThickness="5" Data="M 10 10 L 10 100 M 90 10 L 90 190 M 90 100 L 10 100"/>
+        <Path Grid.Column="7" Stroke="Black" StrokeThickness="5" Data="M 10 10 L 10 190 M 90 10 L 90 190 M 10 100 L 90 100 M 10 10 L 90 10 M 10 190 L 90 190"/>
+        <Path Grid.Column="7" Stroke="Black" StrokeThickness="5" Data="M 10 10 L 10 100 M 90 10 L 90 190 M 10 100 L 90 100 M 10 10 L 90 10 M 10 190 L 90 190"/>
+        <Path Grid.Column="1" Stroke="Black" StrokeThickness="5" Data="M 10 10 L 10 190 M 10 10 L 90 10 M 90 10 L 90 190 M 90 190 L 10 190"/>
+        <Path Grid.Column="0" Stroke="Black" StrokeThickness="5" Data="M 10 10 L 90 10 M 90 10 L 90 190" />-->
+
+        <Path Grid.Column="0" Stroke="Black" StrokeThickness="5" Data="{Binding HourLeft, Source={StaticResource DigitalClockviewModel}}"/>
+        <Path Grid.Column="1" Stroke="Black" StrokeThickness="5" Data="{Binding HourRight, Source={StaticResource DigitalClockviewModel}}"/>
+        <Path Grid.Column="3" Stroke="Black" StrokeThickness="5" Data="{Binding MinuteLeft, Source={StaticResource DigitalClockviewModel}}"/>
+        <Path Grid.Column="4" Stroke="Black" StrokeThickness="5" Data="{Binding MinuteRight, Source={StaticResource DigitalClockviewModel}}"/>
+        <Path Grid.Column="6" Stroke="Black" StrokeThickness="5" Data="{Binding SecondLeft, Source={StaticResource DigitalClockviewModel}}"/>
+        <Path Grid.Column="7" Stroke="Black" StrokeThickness="5" Data="{Binding SecondRight, Source={StaticResource DigitalClockviewModel}}"/>
+
+        <Ellipse Grid.Column="2" Width="10" Height="10" VerticalAlignment="Top" Fill="Black" Margin="0 80 0 0"/>
+        <Ellipse Grid.Column="2" Width="10" Height="10" VerticalAlignment="Bottom" Fill="Black" Margin="0 0 0 80"/>
+        <Ellipse Grid.Column="5" Width="10" Height="10" VerticalAlignment="Top" Fill="Black" Margin="0 80 0 0"/>
+        <Ellipse Grid.Column="5" Width="10" Height="10" VerticalAlignment="Bottom" Fill="Black" Margin="0 0 0 80"/>
+    </Grid>
+</UserControl>

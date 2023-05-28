@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "A1iGlQo90s5/366h0+hmhy8TNTKI6YXsZqKrsgd7D15ijXYZrtc65JQJ6yM1MqeLbuoAxZzB0BWqB/AuOdR+Gw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Paint\\Paint.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nate_higgers\\.nuget\\packages\\dirkster.avalondock\\4.71.1\\dirkster.avalondock.4.71.1.nupkg.sha512",
+    "C:\\Users\\nate_higgers\\.nuget\\packages\\extended.wpf.toolkit\\4.5.0\\extended.wpf.toolkit.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

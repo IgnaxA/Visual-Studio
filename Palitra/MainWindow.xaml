@@ -1,0 +1,35 @@
+﻿<Window x:Class="Palitra.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Palitra"  
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="1200">
+    
+    <Window.Resources>
+        <local:Palette x:Key="Palette"/>
+        <local:AnalogClock x:Key="AnalogClock"/>
+        <local:DigitalClock x:Key="DigitalClock"/>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Viewbox Grid.Column="0">
+            <local:Palette/>
+        </Viewbox>
+
+        <Viewbox Grid.Column="1">
+            <local:AnalogClock/>
+        </Viewbox>
+
+        <Viewbox Grid.Column="2">
+            <local:DigitalClock/>
+        </Viewbox>
+    </Grid>
+</Window>

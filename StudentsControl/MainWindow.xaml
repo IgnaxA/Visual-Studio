@@ -1,0 +1,37 @@
+﻿<Window x:Class="StudentsControl.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentsControl"
+        xmlns:localTeacherWindow="clr-namespace:StudentsControl.Teacher"
+        mc:Ignorable="d"
+        Title="Окно авторизации" Height="400" Width="600" ResizeMode="NoResize">
+    <Window.Resources>
+        <localTeacherWindow:TeacherWindow x:Key="TeacherWindwo"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.8*"/>
+            <RowDefinition Height="1.8*"/>
+            <RowDefinition Height="1.4*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Label Content="Авторизация" FontSize="30" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" VerticalAlignment="Center">
+            <TextBox x:Name="LoginTextBox" Height="40" Margin="100 0 100 0" VerticalContentAlignment="Center" GotFocus="Login_GotFocus" LostFocus="Login_LostFocus" PreviewTextInput="Login_PreviewTextInput" PreviewKeyDown="Login_PreviewKeyDown"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="2" VerticalAlignment="Center">
+            <PasswordBox x:Name="PasswordTextBox" Height="40" Margin="100 0 100 0" VerticalContentAlignment="Center" PreviewKeyDown="Password_PreviewKeyDown"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" VerticalAlignment="Center">
+            <Button Content="Войти" Height="40" Width="80"  HorizontalAlignment="Center" Click="Button_Click"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>

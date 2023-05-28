@@ -1,0 +1,31 @@
+﻿<Window x:Class="StudentsControl.Teacher.Adding.AddStudent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentsControl.Teacher.Adding"
+        xmlns:localRename="clr-namespace:StudentsControl.Teacher.Rename"
+        mc:Ignorable="d"
+        Title="Добавление студентов" Height="450" Width="400" ResizeMode="NoResize">
+    <Window.Resources>
+        <localRename:RenameStudent x:Key="RenameStudent"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TreeView x:Name="StudentsList" PreviewMouseRightButtonDown="BrigadesView_OnPreviewMouseRightButtonDown" ContextMenuOpening="ContextMenu_ContextMenuOpening">
+            <TreeView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="DeleteNode" Header="Удалить" Click="DeleteNode_Click"/>
+                    <MenuItem x:Name="RenameNode" Header="Переиеновать" Click="RenameNode_Click"/>
+                </ContextMenu>
+            </TreeView.ContextMenu>
+        </TreeView>
+        <DockPanel Grid.Row="1">
+            <Button Height="30" Width="120" Content="Добавить студента" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0 0 0" Click="AddStudent_Click"/>
+            <Button Height="30" Width="80" Content="Готово" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 20 0" Click="Done_Click"/>
+        </DockPanel>
+    </Grid>
+</Window>
