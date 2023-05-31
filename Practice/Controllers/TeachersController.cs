@@ -7,57 +7,98 @@ namespace Practice.Controllers
     public class TeachersController : Controller
     {
         private readonly ITeachers _teacher;
+        private readonly IThemes _themes;
+        private readonly IStudents _students;
 
-        public TeachersController(ITeachers teacher)
+        public TeachersController(ITeachers teacher, IThemes themes, IStudents students)
         {
             _teacher = teacher;
+            _themes = themes;
+            _students = students;
         }
 
         public async Task<ViewResult> TeachersList()
         {
             TeachersViewModel teachers = new TeachersViewModel();
-            teachers.getTeacher = await _teacher.GetTeacher(1);
+            teachers.getTeacher = await _teacher.GetEntity(1);
             return View(teachers);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteTheme(int themeId)
+        {
+            await _themes.DeleteEntity(await _themes.GetEntity(themeId));
+            return RedirectToAction("TeachersList");
         }
 
         [HttpPost]
         public async Task<IActionResult> DeleteStudent(int studentId)
         {
-            await _teacher.DeleteStudent(await _teacher.GetStudent(studentId));
+            await _students.DeleteEntity(await _students.GetEntity(studentId));
             return RedirectToAction("TeachersList");
         }
 
         [HttpGet]
-        public ViewResult CreateTheme()
+        public async Task<IActionResult> SaveTheme(int themeId)
         {
-            return View(new CreateThemeViewModel());
+            CreateThemeViewModel model = new CreateThemeViewModel();
+            ViewBag.tableName = "";
+            switch (themeId)
+            {
+                case 0:
+                    ViewBag.tableName = "Создать запись:";
+                    break;
+
+                default:
+                    ViewBag.tableName = "Изменить запись:";
+                    model.id = themeId;
+                    model.ThemeFormulation =  (await _themes.GetEntity(themeId)).ThemeFormulation;
+                    model.MaterialsLink =  (await _themes.GetEntity(themeId)).Teams.FirstOrDefault().MaterialsLink;
+                    break;
+            }
+            return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateTheme(CreateThemeViewModel model)
+        public async Task<IActionResult> SaveTheme(CreateThemeViewModel model)
         {
             if (!ModelState.IsValid) 
             {
                 return View(model);
             }
 
-
-            if (model.id == 0)
+            switch(model.id)
             {
-                await _teacher.AddTheme(model);
-            }
-            else
-            {
+                case 0:
+                    Theme theme = new Theme()
+                    {
+                        ThemeFormulation = model.ThemeFormulation,
+                        TeacherId = 1
+                    };
+                    theme.Teams.Add(new Team() { MaterialsLink = model.MaterialsLink });
+                    await _themes.AddEntity(theme);
+                    break;
 
+                default:
+                    Theme existingTheme = await _themes.GetEntity(model.id);
+                    existingTheme.ThemeFormulation = model.ThemeFormulation;
+                    existingTheme.Teams.FirstOrDefault().MaterialsLink = model.MaterialsLink;
+                    await _themes.UpdateEntity(existingTheme);
+                    break;
             }
+
             return RedirectToAction("TeachersList");
         }
 
-        [HttpPost]
-        public async Task<IActionResult> DeleteTheme(int themeId)
+        [HttpGet]
+        public async Task<IActionResult> ShowStudentInfo(int id)
         {
-            await _teacher.DeleteTheme(await _teacher.GetTheme(themeId));
-            return RedirectToAction("TeachersList");
+            Student student = await _students.GetEntity(id);
+            StudentViewModel model = new StudentViewModel()
+            {
+                Id = student.Id
+            };
+            return PartialView("ShowStudent", model);
         }
     }
 }

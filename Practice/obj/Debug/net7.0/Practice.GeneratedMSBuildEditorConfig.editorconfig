@@ -48,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxcTWV0YVBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/nate_higgers/Desktop/Visual Studio/Practice/Views/Shared/Partial/PartialModalWindow.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxcUGFydGlhbE1vZGFsV2luZG93LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/nate_higgers/Desktop/Visual Studio/Practice/Views/Shared/Partial/ScriptPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxcU2NyaXB0UGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -64,8 +68,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nate_higgers/Desktop/Visual Studio/Practice/Views/Teachers/CreateTheme.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlcnNcQ3JlYXRlVGhlbWUuY3NodG1s
+[C:/Users/nate_higgers/Desktop/Visual Studio/Practice/Views/Teachers/SaveTheme.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlcnNcU2F2ZVRoZW1lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nate_higgers/Desktop/Visual Studio/Practice/Views/Teachers/ShowStudent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlcnNcU2hvd1N0dWRlbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nate_higgers/Desktop/Visual Studio/Practice/Views/Teachers/TeachersList.cshtml]

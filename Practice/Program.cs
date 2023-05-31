@@ -8,7 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc();
+
 builder.Services.AddTransient<ITeachers, MockTeachers>();
+builder.Services.AddTransient<IThemes, MockThemes>();
+builder.Services.AddTransient<IStudents, MockStudents>();
+
 builder.Services.AddDbContext<InformationSystemToRecordProjectActivitiesDatabaseContext>();
 
 var app = builder.Build();
@@ -32,7 +36,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Teachers}/{action=TeachersList}"
-    );
+    pattern: "{controller=Teachers}/{action=TeachersList}"); 
 
 app.Run();

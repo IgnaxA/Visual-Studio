@@ -1,0 +1,16 @@
+﻿@model StudentViewModel
+
+
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-secondary rounded h-100 p-4">
+        <form asp-controller="Teachers" asp-action="SaveStudent" method="post">
+            <input asp-for="Id" hidden/>
+            <div asp-validation-summary="All"></div>
+
+            <div class="form-floating mb-3">
+                <input class="form-control" id="floatingInput" placeholder="Введите инициалы студента!" asp-for="Initials">
+                <label for="floatingInput" asp-for="Initials"></label>
+            </div>
+        </form>
+    </div>
+</div>

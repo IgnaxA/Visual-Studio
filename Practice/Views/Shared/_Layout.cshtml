@@ -25,14 +25,18 @@
 
                     @RenderBody()
 
+                    @await Html.PartialAsync("Partial/PartialModalWindow") 
+
                     @*@await Html.PartialAsync("Partial/Content/WidgetPartial")*@
 
                     @await Html.PartialAsync("Partial/Content/FooterPartial")
+                   
         </div>
         <!-- Content End -->
 
         @await Html.PartialAsync("Partial/BackToTopPartial")
     </div>
+
 
     @await Html.PartialAsync("Partial/ScriptPartial")
 </body>

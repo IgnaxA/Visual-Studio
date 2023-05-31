@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\img\\user.jpg"
     },
     {
+      "Id": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\js\\Modal.js",
+      "PackagePath": "staticwebassets\\js\\Modal.js"
+    },
+    {
       "Id": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\js\\main.js",
       "PackagePath": "staticwebassets\\js\\main.js"
     },

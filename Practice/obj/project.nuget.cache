@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "wJ4pRY7Kf+fFh+4nsvX6Z3LbZHNCfUeeItImKMaaiXcfyxHXACx/Y54Repkp/h5ucBCQknq5rsGmbfRgJ08T5Q==",
+  "dgSpecHash": "mDtYBDT7KphY0b2yX0zab4f64CmMXz5hKt9bzEHCEK10XfKhvauREqNuANOreXi9j3AC5dA3u+yI2fHUn/IF5g==",
   "success": true,
   "projectFilePath": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\Practice.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nate_higgers\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\nate_higgers\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\nate_higgers\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\nate_higgers\\.nuget\\packages\\jquery\\3.7.0\\jquery.3.7.0.nupkg.sha512",
     "C:\\Users\\nate_higgers\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\nate_higgers\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\nate_higgers\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",

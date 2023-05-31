@@ -13,40 +13,24 @@ namespace Practice.Data.Mocks
             this.db = db;
         }
 
-        public async Task<Teacher> GetTeacher(int id) => await db.Teachers.Include(teacher => teacher.Themes)
+        public Task<bool> AddEntity(Teacher entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Teacher> GetEntity(int id) => await db.Teachers.Include(teacher => teacher.Themes)
             .ThenInclude(theme => theme.Teams)
             .ThenInclude(team => team.Students)
             .FirstOrDefaultAsync(teacher => teacher.Id == id);
 
-        public async Task<Student> GetStudent(int id) => await db.Students.FirstOrDefaultAsync(student => student.Id == id);
-
-        public async Task<bool> DeleteStudent(Student student)
+        public Task<bool> UpdateEntity(Teacher entity)
         {
-            db.Students.Remove(student);
-            await db.SaveChangesAsync();
-            return true;
+            throw new NotImplementedException();
         }
 
-        public async Task<Theme> GetTheme(int id) => await db.Themes.FirstOrDefaultAsync(theme => theme.Id == id);
-
-        public async Task<bool> AddTheme(CreateThemeViewModel theme)
+        public Task<bool> DeleteEntity(Teacher entity)
         {
-            Theme _theme = new Theme()
-            {
-                ThemeFormulation = theme.ThemeFormulation,
-                TeacherId = 1
-            };
-
-            await db.Themes.AddAsync(_theme);
-            await db.SaveChangesAsync();
-            return true;
-        }
-
-        public async Task<bool> DeleteTheme(Theme theme)
-        {
-            db.Themes.Remove(theme);
-            await db.SaveChangesAsync();
-            return true;
+            throw new NotImplementedException();
         }
     }
 }

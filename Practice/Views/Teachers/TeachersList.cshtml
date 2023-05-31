@@ -37,6 +37,10 @@
                                     <form asp-controller="Teachers" asp-action="DeleteTheme" method="post" asp-route-themeId="@theme.Id">
                                         <button class="btn btn-sm btn-primary">Удалить</button>
                                     </form>
+                                    <a class="btn btn-success m-2" asp-controller="Teachers" asp-action="SaveTheme" method="get" asp-route-themeId="@theme.Id" >Изменить</a>
+                                    <!--<form asp-controller="Teachers" asp-action="SaveTheme" method="get" asp-route-themeId="@theme.Id">
+                                        <button class="btn btn-sm btn-primary">Изменить</button>
+                                    </form>--->
                                 </td>
                             </tr>
                         }
@@ -44,7 +48,7 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <form asp-controller="Teachers" asp-action="CreateTheme" method="get">
+                                <form asp-controller="Teachers" asp-action="SaveTheme" method="get">
                                     <button class="btn btn-sm btn-primary">Добавить</button>
                                 </form>
                             </td>
@@ -92,7 +96,7 @@
                                                 continue;
                                             }
                                             studentSave = student;
-                                            <td>@student.Initials</td>
+                                            <td> <button class="btn btn-sm btn-primary" onclick="openModal( { url: '/Teachers/ShowStudentInfo', data: '@student.Id' })" data-toggle="ajax-modal" data-target="Modal"> @student.Initials </button> </td>
                                             ++count;
                                         }
                                         <td>

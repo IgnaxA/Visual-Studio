@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rJsJUN3lX/OevMwIkbIBx9K3uj93T8RQCc+jeeizzQg=",
+  "Hash": "bMQ9VAeW2S3OIkU4GRlxFV4hM/RPZque0I79uqsEeKE=",
   "Source": "Practice",
   "BasePath": "_content/Practice",
   "Mode": "Default",
@@ -117,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\main.js"
+    },
+    {
+      "Identity": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\js\\Modal.js",
+      "SourceId": "Practice",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\",
+      "BasePath": "_content/Practice",
+      "RelativePath": "js/Modal.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Modal.js"
     },
     {
       "Identity": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\lib\\chart\\chart.min.js",
