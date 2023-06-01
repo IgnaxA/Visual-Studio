@@ -1,15 +1,88 @@
 ﻿@model StudentViewModel
 
 
-<div class="col-sm-12 col-xl-6">
+<div class="col-sm-12 col-xl-6 w-100">
     <div class="bg-secondary rounded h-100 p-4">
         <form asp-controller="Teachers" asp-action="SaveStudent" method="post">
             <input asp-for="Id" hidden/>
             <div asp-validation-summary="All"></div>
 
+            <div class="form-floating mb-3"  aria-label=".form-select-sm example">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" asp-for="TeamId">
+                    @{
+                        foreach (var theme in ViewBag.themes)
+                        {
+                            if (theme.Id == ViewBag.studentTheme)
+                            {
+                                <option selected value="@theme.Id">
+                                    @theme.ThemeFormulation
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="@theme.Id">
+                                    @theme.ThemeFormulation
+                                </option>
+                            }
+                        }
+                    }
+                </select>
+                <label for="floatingSelect">Команда:</label>
+            </div>
+
             <div class="form-floating mb-3">
                 <input class="form-control" id="floatingInput" placeholder="Введите инициалы студента!" asp-for="Initials">
                 <label for="floatingInput" asp-for="Initials"></label>
+            </div>
+            
+            <div class="form-floating mb-3">
+                <input class="form-control" id="floatingInput" placeholder="Введите email студента!" asp-for="Email">
+                <label for="floatingInput" asp-for="Email"></label>
+            </div>
+            
+            <div class="form-floating mb-3"  aria-label=".form-select-sm example">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" asp-for="FacultyId">
+                    <option selected>Нет</option>
+                    @{
+                        foreach (var faculty in ViewBag.faculties)
+                        {
+                            <option value="@faculty.Id">
+                                @faculty.FacultyName
+                            </option>
+                        }
+                    }
+                </select>
+                <label for="floatingSelect">Факультет:</label>
+            </div>
+
+            <div class="form-floating mb-3"  aria-label=".form-select-sm example">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" asp-for="CourseId">
+                    <option selected>Нет</option>
+                    @{
+                        foreach (var course in ViewBag.courses)
+                        {
+                            <option value="@course.Id">
+                                @course.Course1
+                            </option>
+                        }
+                    }
+                </select>
+                <label for="floatingSelect">Курс:</label>
+            </div>
+            
+            <div class="form-floating mb-3"  aria-label=".form-select-sm example">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" asp-for="RoleId">
+                    <option selected>Нет</option>
+                    @{
+                        foreach (var role in ViewBag.roles)
+                        {
+                            <option value="@role.Id">
+                                @role.Role1
+                            </option>
+                        }
+                    }
+                </select>
+                <label for="floatingSelect">Роль в команде:</label>
             </div>
         </form>
     </div>

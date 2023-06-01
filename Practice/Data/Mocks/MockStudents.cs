@@ -19,7 +19,7 @@ namespace Practice.Data.Mocks
             return true;
         }
 
-        public async Task<Student> GetEntity(int id) => await db.Students.FirstOrDefaultAsync(student => student.Id == id);
+        public async Task<Student> GetEntity(int id) => await db.Students.Include(student => student.Team).ThenInclude(team => team.Theme).FirstOrDefaultAsync(student => student.Id == id);
 
         public Task<bool> UpdateEntity(Student entity)
         {

@@ -9,12 +9,18 @@ namespace Practice.Controllers
         private readonly ITeachers _teacher;
         private readonly IThemes _themes;
         private readonly IStudents _students;
+        private readonly IFaculties _faculties;
+        private readonly ICourses _courses;
+        private readonly IRoles _roles;
 
-        public TeachersController(ITeachers teacher, IThemes themes, IStudents students)
+        public TeachersController(ITeachers teacher, IThemes themes, IStudents students, IFaculties faculties, ICourses courses, IRoles roles)
         {
             _teacher = teacher;
             _themes = themes;
             _students = students;
+            _faculties = faculties;
+            _courses = courses;
+            _roles = roles;
         }
 
         public async Task<ViewResult> TeachersList()
@@ -93,11 +99,29 @@ namespace Practice.Controllers
         [HttpGet]
         public async Task<IActionResult> ShowStudentInfo(int id)
         {
-            Student student = await _students.GetEntity(id);
-            StudentViewModel model = new StudentViewModel()
+            StudentViewModel model = new StudentViewModel();
+            ViewBag.themes = (await _teacher.GetEntity(1)).Themes;
+            ViewBag.faculties = await _faculties.GetEntities();
+            ViewBag.courses = await _courses.GetEntities();
+            ViewBag.roles = await _roles.GetEntities();
+            switch (id)
             {
-                Id = student.Id
-            };
+                case 0:
+
+                    break;
+
+                default:
+                    Student student = await _students.GetEntity(id);
+                    model.Id = student.Id;
+                    model.Initials = student.Initials;
+                    model.Email = student.Email;
+                    model.CourseId = student.CourseId;
+                    model.FacultyId = student.FacultyId;
+                    model.RoleId = student.RoleId == null ? 0 : student.RoleId;
+                    ViewBag.studentTheme = (await _students.GetEntity(id)).Team.Theme.Id;
+                    break;
+            }
+
             return PartialView("ShowStudent", model);
         }
     }
