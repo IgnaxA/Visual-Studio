@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\nate_higgers\Desktop\Visual Studio\Practice
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/nate_higgers/Desktop/Visual Studio/Practice/Views/Deadlines/DeadlinesList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVhZGxpbmVzXERlYWRsaW5lc0xpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/nate_higgers/Desktop/Visual Studio/Practice/Views/Shared/Partial/BackToTopPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxcQmFja1RvVG9wUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

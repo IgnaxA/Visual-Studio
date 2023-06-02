@@ -17,13 +17,14 @@
 
             <!-- Content Start -->
             <div class="content">
-                        @await Html.PartialAsync("Partial/Content/NavBarPartial")
 
-                        @RenderBody()
+                @await Html.PartialAsync("Partial/Content/NavBarPartial")
 
-                        @await Html.PartialAsync("Partial/PartialModalWindow") 
+                @RenderBody()
 
-                        @await Html.PartialAsync("Partial/Content/FooterPartial")
+                @await Html.PartialAsync("Partial/PartialModalWindow") 
+
+                @await Html.PartialAsync("Partial/Content/FooterPartial")
                    
             </div>
             <!-- Content End -->

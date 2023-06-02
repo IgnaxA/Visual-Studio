@@ -9,14 +9,6 @@
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
-      "Id": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\img\\testimonial-1.jpg",
-      "PackagePath": "staticwebassets\\img\\testimonial-1.jpg"
-    },
-    {
-      "Id": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\img\\testimonial-2.jpg",
-      "PackagePath": "staticwebassets\\img\\testimonial-2.jpg"
-    },
-    {
       "Id": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\img\\user.jpg",
       "PackagePath": "staticwebassets\\img\\user.jpg"
     },

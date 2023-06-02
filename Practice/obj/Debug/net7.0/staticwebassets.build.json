@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bMQ9VAeW2S3OIkU4GRlxFV4hM/RPZque0I79uqsEeKE=",
+  "Hash": "03yddeZ53pY3rwk5T7aSS2RpznnpR1nPJfUJ0VQgI+c=",
   "Source": "Practice",
   "BasePath": "_content/Practice",
   "Mode": "Default",
@@ -49,40 +49,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.css"
-    },
-    {
-      "Identity": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\img\\testimonial-1.jpg",
-      "SourceId": "Practice",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\",
-      "BasePath": "_content/Practice",
-      "RelativePath": "img/testimonial-1.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\testimonial-1.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\img\\testimonial-2.jpg",
-      "SourceId": "Practice",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\",
-      "BasePath": "_content/Practice",
-      "RelativePath": "img/testimonial-2.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\testimonial-2.jpg"
     },
     {
       "Identity": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\img\\user.jpg",
