@@ -10,17 +10,17 @@
             <div class="form-floating mb-3"  aria-label=".form-select-sm example">
                 <select class="form-select" id="floatingSelect" aria-label="Floating label select example" asp-for="TeamId">
                     @{
-                        foreach (var theme in ViewBag.themes)
+                        foreach (Theme theme in ViewBag.themes)
                         {
                             if (theme.Id == ViewBag.studentTheme)
                             {
-                                <option selected value="@theme.Id">
+                                <option selected value="@theme.Teams.FirstOrDefault().Id">
                                     @theme.ThemeFormulation
                                 </option>
                             }
                             else
                             {
-                                <option value="@theme.Id">
+                                <option value="@theme.Teams.FirstOrDefault().Id">
                                     @theme.ThemeFormulation
                                 </option>
                             }

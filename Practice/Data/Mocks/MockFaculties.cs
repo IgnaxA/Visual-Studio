@@ -24,10 +24,7 @@ namespace Practice.Data.Mocks
             throw new NotImplementedException();
         }
 
-        public Task<Faculty> GetEntity(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<Faculty> GetEntity(int id) => await db.Faculties.FirstOrDefaultAsync(faculty => faculty.Id == id);
 
         public Task<bool> UpdateEntity(Faculty entity)
         {

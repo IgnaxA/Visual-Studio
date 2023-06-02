@@ -132,11 +132,6 @@ namespace Practice.Controllers
         [HttpPost]
         public async Task<IActionResult> ShowStudentInfo(StudentViewModel model)
         {
-            ViewBag.themes = (await _teacher.GetEntity(1)).Themes;
-            ViewBag.faculties = await _faculties.GetEntities();
-            ViewBag.courses = await _courses.GetEntities();
-            ViewBag.roles = await _roles.GetEntities();
-            ViewBag.studentTheme = model.ThemeId;
             if (!ModelState.IsValid)
             {
                 return PartialView("ShowStudent", model);
@@ -152,7 +147,7 @@ namespace Practice.Controllers
                         Email = model.Email,
                         FacultyId = model.FacultyId,
                         RoleId = model.RoleId,
-                        CourseId = model.CourseId
+                        CourseId = model.CourseId,
                     };
                     await _students.AddEntity(student);
                     break;
