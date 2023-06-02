@@ -88,7 +88,7 @@
                                         int count = 1;
                                         if (team.Students.Count == 0)
                                         {
-                                            <td></td>
+                                            <td><button class="btn btn-success rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', studentId: '0', themeId: '@themes.Id' })" data-toggle="ajax-modal" data-target="Modal"> Добавить </button></td>
                                             <td></td>
                                             continue;
                                         }
@@ -101,7 +101,7 @@
                                                 continue;
                                             }
                                             studentSave = student;
-                                            <td> <button class="btn btn-warning rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', data: '@student.Id' })" data-toggle="ajax-modal" data-target="Modal"> @student.Initials </button> </td>
+                                            <td> <button class="btn btn-warning rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', studentId: '@student.Id', themeId: '@themes.Id' })" data-toggle="ajax-modal" data-target="Modal"> @student.Initials </button> </td>
                                             ++count;
                                         }
                                         <td>
@@ -121,7 +121,7 @@
                                 {
                                     <tr>
                                         <td></td>
-                                        <td><button class="btn btn-warning rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', data: '@student.Id' })" data-toggle="ajax-modal" data-target="Modal"> @student.Initials </button></td>
+                                        <td><button class="btn btn-warning rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', studentId: '@student.Id', themeId: '@themes.Id' })" data-toggle="ajax-modal" data-target="Modal"> @student.Initials </button></td>
                                         <td>
                                             <form asp-controller="Teachers" asp-action="DeleteStudent" method="post" asp-route-studentId="@student.Id">
                                                 <button class="btn btn-sm btn-primary">Удалить</button>
@@ -131,6 +131,11 @@
                                         <td></td>
                                     </tr>
                                 }
+                                <tr>
+                                    <td></td>
+                                    <td><button class="btn btn-success rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', studentId: '0', themeId: '@themes.Id' })" data-toggle="ajax-modal" data-target="Modal"> Добавить </button></td>
+                                    <td></td>
+                                </tr>
                             }
                         }
                     </tbody>

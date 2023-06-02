@@ -12,8 +12,9 @@ namespace Practice.Controllers
         private readonly IFaculties _faculties;
         private readonly ICourses _courses;
         private readonly IRoles _roles;
+        private readonly ITeams _teams;
 
-        public TeachersController(ITeachers teacher, IThemes themes, IStudents students, IFaculties faculties, ICourses courses, IRoles roles)
+        public TeachersController(ITeachers teacher, IThemes themes, IStudents students, IFaculties faculties, ICourses courses, IRoles roles, ITeams teams)
         {
             _teacher = teacher;
             _themes = themes;
@@ -21,6 +22,7 @@ namespace Practice.Controllers
             _faculties = faculties;
             _courses = courses;
             _roles = roles;
+            _teams = teams;
         }
 
         public async Task<ViewResult> TeachersList()
@@ -47,7 +49,7 @@ namespace Practice.Controllers
         [HttpGet]
         public async Task<IActionResult> SaveTheme(int themeId)
         {
-            CreateThemeViewModel model = new CreateThemeViewModel();
+            ThemeViewModel model = new ThemeViewModel();
             ViewBag.tableName = "";
             switch (themeId)
             {
@@ -66,7 +68,7 @@ namespace Practice.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SaveTheme(CreateThemeViewModel model)
+        public async Task<IActionResult> SaveTheme(ThemeViewModel model)
         {
             if (!ModelState.IsValid) 
             {
@@ -97,32 +99,75 @@ namespace Practice.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> ShowStudentInfo(int id)
+        public async Task<IActionResult> ShowStudentInfo(int studentId, int themeId)
         {
             StudentViewModel model = new StudentViewModel();
+            model.ThemeId = themeId;
             ViewBag.themes = (await _teacher.GetEntity(1)).Themes;
             ViewBag.faculties = await _faculties.GetEntities();
             ViewBag.courses = await _courses.GetEntities();
             ViewBag.roles = await _roles.GetEntities();
-            switch (id)
+            ViewBag.studentTheme = themeId;
+            model.TeamId = (await _themes.GetEntity(themeId)).Teams.FirstOrDefault().Id;
+            switch (studentId)
             {
                 case 0:
-
+                    
                     break;
 
                 default:
-                    Student student = await _students.GetEntity(id);
+                    Student student = await _students.GetEntity(studentId);
                     model.Id = student.Id;
                     model.Initials = student.Initials;
                     model.Email = student.Email;
                     model.CourseId = student.CourseId;
                     model.FacultyId = student.FacultyId;
                     model.RoleId = student.RoleId == null ? 0 : student.RoleId;
-                    ViewBag.studentTheme = (await _students.GetEntity(id)).Team.Theme.Id;
                     break;
             }
 
             return PartialView("ShowStudent", model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ShowStudentInfo(StudentViewModel model)
+        {
+            ViewBag.themes = (await _teacher.GetEntity(1)).Themes;
+            ViewBag.faculties = await _faculties.GetEntities();
+            ViewBag.courses = await _courses.GetEntities();
+            ViewBag.roles = await _roles.GetEntities();
+            ViewBag.studentTheme = model.ThemeId;
+            if (!ModelState.IsValid)
+            {
+                return PartialView("ShowStudent", model);
+            }
+
+            switch (model.Id)
+            {
+                case 0:
+                    Student student = new Student()
+                    {
+                        TeamId = model.TeamId,
+                        Initials = model.Initials,
+                        Email = model.Email,
+                        FacultyId = model.FacultyId,
+                        RoleId = model.RoleId,
+                        CourseId = model.CourseId
+                    };
+                    await _students.AddEntity(student);
+                    break;
+
+                default:
+                    Student existingStudent = await _students.GetEntity(model.Id);
+                    existingStudent.Initials = model.Initials;
+                    existingStudent.Email = model.Email;
+                    existingStudent.FacultyId = model.FacultyId;
+                    existingStudent.RoleId = model.RoleId;
+                    existingStudent.CourseId = model.CourseId;
+                    await _students.UpdateEntity(existingStudent);
+                    break;
+            }
+            return RedirectToAction("TeachersList");
         }
     }
 }

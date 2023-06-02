@@ -3,7 +3,7 @@
 
 <div class="col-sm-12 col-xl-6 w-100">
     <div class="bg-secondary rounded h-100 p-4">
-        <form asp-controller="Teachers" asp-action="SaveStudent" method="post">
+        <form asp-controller="Teachers" asp-action="ShowStudentInfo" method="post">
             <input asp-for="Id" hidden/>
             <div asp-validation-summary="All"></div>
 
@@ -84,6 +84,9 @@
                 </select>
                 <label for="floatingSelect">Роль в команде:</label>
             </div>
+            <button class="btn btn-success rounded-pill m-2">Сохранить</button>
+            <button class="btn btn-primary rounded-pill m-2" data-bs-dismiss="modal">Отменить</button>
         </form>
     </div>
 </div>
+

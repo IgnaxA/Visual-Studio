@@ -27,5 +27,6 @@ namespace Practice.ViewModels
         [Required]
         public int? RoleId { get; set; }
 
+        public int ThemeId { get; set; }
     }
 }

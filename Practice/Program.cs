@@ -15,6 +15,7 @@ builder.Services.AddTransient<IStudents, MockStudents>();
 builder.Services.AddTransient<IFaculties, MockFaculties>();
 builder.Services.AddTransient<ICourses, MockCourses>();
 builder.Services.AddTransient<IRoles, MockRoles>();
+builder.Services.AddTransient<ITeams, MockTeams>();
 
 builder.Services.AddDbContext<InformationSystemToRecordProjectActivitiesDatabaseContext>();
 

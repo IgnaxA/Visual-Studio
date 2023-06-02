@@ -21,9 +21,11 @@ namespace Practice.Data.Mocks
 
         public async Task<Student> GetEntity(int id) => await db.Students.Include(student => student.Team).ThenInclude(team => team.Theme).FirstOrDefaultAsync(student => student.Id == id);
 
-        public Task<bool> UpdateEntity(Student entity)
+        public async Task<bool> UpdateEntity(Student entity)
         {
-            throw new NotImplementedException();
+            db.Students.Update(entity);
+            await db.SaveChangesAsync();
+            return true;
         }
 
         public async Task<bool> DeleteEntity(Student student)
