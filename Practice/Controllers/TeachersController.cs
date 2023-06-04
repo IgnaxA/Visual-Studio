@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.DateTime;
 using Practice.Data.Interface;
 using Practice.Services;
 using Practice.ViewModels;
@@ -41,6 +42,7 @@ namespace Practice.Controllers
         public async Task<IActionResult> DeleteTheme(int themeId)
         {
             Theme theme = await _themes.GetEntity(themeId);
+
             _report.AddActionToExcel("Удаление темы:", $"{theme.ThemeFormulation}", DateTime.Now);
             await _themes.DeleteEntity(theme);
             return RedirectToAction("TeachersList");
@@ -49,7 +51,9 @@ namespace Practice.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteStudent(int studentId)
         {
-            await _students.DeleteEntity(await _students.GetEntity(studentId));
+            Student student = await _students.GetEntity(studentId);
+            _report.AddActionToExcel("Удаление студента:", $"{student.Initials}", DateTime.Now);
+            await _students.DeleteEntity(student);
             return RedirectToAction("TeachersList");
         }
 
@@ -90,12 +94,14 @@ namespace Practice.Controllers
                         ThemeFormulation = model.ThemeFormulation,
                         TeacherId = 1
                     };
+                    _report.AddActionToExcel("Добавление:", $"{theme.ThemeFormulation} с ссылкой на материалы: {model.MaterialsLink}", DateTime.Now);
                     theme.Teams.Add(new Team() { MaterialsLink = model.MaterialsLink });
                     await _themes.AddEntity(theme);
                     break;
 
                 default:
                     Theme existingTheme = await _themes.GetEntity(model.id);
+                    _report.AddActionToExcel("Изменение:", $"{existingTheme.ThemeFormulation} с ссылкой на материалы: {existingTheme.Teams.FirstOrDefault().MaterialsLink}", DateTime.Now, $"{model.ThemeFormulation} с ссылкой на материалы: {model.MaterialsLink}");
                     existingTheme.ThemeFormulation = model.ThemeFormulation;
                     existingTheme.Teams.FirstOrDefault().MaterialsLink = model.MaterialsLink;
                     await _themes.UpdateEntity(existingTheme);
@@ -156,11 +162,13 @@ namespace Practice.Controllers
                         RoleId = model.RoleId,
                         CourseId = model.CourseId,
                     };
+                    _report.AddActionToExcel("Добавление:", $"{model.Initials}", DateTime.Now);
                     await _students.AddEntity(student);
                     break;
 
                 default:
                     Student existingStudent = await _students.GetEntity(model.Id);
+                    _report.AddActionToExcel("Изменение:", $"{existingStudent.Initials}", DateTime.Now, $"{model.Initials}");
                     existingStudent.Initials = model.Initials;
                     existingStudent.Email = model.Email;
                     existingStudent.FacultyId = model.FacultyId;
