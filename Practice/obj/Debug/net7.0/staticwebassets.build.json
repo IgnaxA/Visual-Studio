@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "03yddeZ53pY3rwk5T7aSS2RpznnpR1nPJfUJ0VQgI+c=",
+  "Hash": "ccsDtW3zCpf1lBlYOgHNK4RfI1WjLXjE6to4Adym2Ro=",
   "Source": "Practice",
   "BasePath": "_content/Practice",
   "Mode": "Default",
@@ -66,6 +66,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\user.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\js\\ChangeVisibility.js",
+      "SourceId": "Practice",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\",
+      "BasePath": "_content/Practice",
+      "RelativePath": "js/ChangeVisibility.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\ChangeVisibility.js"
+    },
+    {
+      "Identity": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\js\\CreateReport.js",
+      "SourceId": "Practice",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\",
+      "BasePath": "_content/Practice",
+      "RelativePath": "js/CreateReport.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\CreateReport.js"
     },
     {
       "Identity": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\js\\main.js",

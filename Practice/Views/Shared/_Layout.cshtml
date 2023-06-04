@@ -9,6 +9,8 @@
     </head>
 
     <body>
+        @await Html.PartialAsync("Partial/ScriptPartial")
+
         <div class="container-fluid position-relative d-flex p-0">
 
             @await Html.PartialAsync("Partial/SpinnerPartial")
@@ -33,7 +35,7 @@
 
         </div>
 
-        @await Html.PartialAsync("Partial/ScriptPartial")
+        
 
     </body>
 

@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\img\\user.jpg"
     },
     {
+      "Id": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\js\\ChangeVisibility.js",
+      "PackagePath": "staticwebassets\\js\\ChangeVisibility.js"
+    },
+    {
+      "Id": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\js\\CreateReport.js",
+      "PackagePath": "staticwebassets\\js\\CreateReport.js"
+    },
+    {
       "Id": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\js\\Modal.js",
       "PackagePath": "staticwebassets\\js\\Modal.js"
     },

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Practice.Data.Interface;
+using Practice.Services;
 using Practice.ViewModels;
 
 namespace Practice.Controllers
@@ -13,8 +14,9 @@ namespace Practice.Controllers
         private readonly ICourses _courses;
         private readonly IRoles _roles;
         private readonly ITeams _teams;
+        private readonly ReportService _report;
 
-        public TeachersController(ITeachers teacher, IThemes themes, IStudents students, IFaculties faculties, ICourses courses, IRoles roles, ITeams teams)
+        public TeachersController(ITeachers teacher, IThemes themes, IStudents students, IFaculties faculties, ICourses courses, IRoles roles, ITeams teams, ReportService report)
         {
             _teacher = teacher;
             _themes = themes;
@@ -23,19 +25,23 @@ namespace Practice.Controllers
             _courses = courses;
             _roles = roles;
             _teams = teams;
+            _report = report;
         }
 
         public async Task<ViewResult> TeachersList()
         {
             TeachersViewModel teachers = new TeachersViewModel();
             teachers.getTeacher = await _teacher.GetEntity(1);
+            teachers.faculties = (await _faculties.GetEntities()).ToList();
             return View(teachers);
         }
 
         [HttpPost]
         public async Task<IActionResult> DeleteTheme(int themeId)
         {
-            await _themes.DeleteEntity(await _themes.GetEntity(themeId));
+            Theme theme = await _themes.GetEntity(themeId);
+            _report.AddActionToExcel("Удаление темы:", $"{theme.ThemeFormulation}", DateTime.Now);
+            await _themes.DeleteEntity(theme);
             return RedirectToAction("TeachersList");
         }
 
@@ -163,6 +169,12 @@ namespace Practice.Controllers
                     break;
             }
             return RedirectToAction("TeachersList");
+        }
+
+        [HttpGet]
+        public async void CreateReport()
+        {
+            _report.CreateExcel();
         }
     }
 }

@@ -1,6 +1,7 @@
 using Practice;
 using Practice.Data.Interface;
 using Practice.Data.Mocks;
+using Practice.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,8 @@ builder.Services.AddTransient<IFaculties, MockFaculties>();
 builder.Services.AddTransient<ICourses, MockCourses>();
 builder.Services.AddTransient<IRoles, MockRoles>();
 builder.Services.AddTransient<ITeams, MockTeams>();
+builder.Services.AddTransient<IDeadlines, MockDeadline>();
+builder.Services.AddSingleton<ReportService>();
 
 builder.Services.AddDbContext<InformationSystemToRecordProjectActivitiesDatabaseContext>();
 
