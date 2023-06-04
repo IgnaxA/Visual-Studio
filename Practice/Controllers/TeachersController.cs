@@ -33,6 +33,7 @@ namespace Practice.Controllers
             TeachersViewModel teachers = new TeachersViewModel();
             teachers.getTeacher = await _teacher.GetEntity(1);
             teachers.faculties = (await _faculties.GetEntities()).ToList();
+            teachers.courses = (await _courses.GetEntities()).ToList();
             return View(teachers);
         }
 

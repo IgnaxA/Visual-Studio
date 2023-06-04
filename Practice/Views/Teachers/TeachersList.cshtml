@@ -65,94 +65,117 @@
             
         </div>
         <h1></h1>
-        <div class="table-responsive" id="StudentsTable">
-            <h2>Работа с бригадами</h2>
-            <div class="form-floating mb-3"  aria-label=".form-select-sm example">
-                <select class="form-select" id="StudentFacultyFilter" aria-label="Floating label select example">
+        
+            <h2>Работа с командами</h2>
+            <div class="m-n2"  aria-label=".form-select-sm example">
+                <div>
+                    <label for="floatingSelect">Факультет:</label>
+                    <select class="form-select" id="StudentFacultyFilter" aria-label="Floating label select example">
                     <option selected data-selectedValue="Нет">Нет</option>
-                    @{
-                        foreach (var faculty in Model.faculties)
-                        {
-                            <option data-selectedValue="@faculty.FacultyName">
-                                @faculty.FacultyName
-                            </option>
-                        }
-                    }
-                </select>
-                <label for="floatingSelect">Факультет:</label>
-            </div>
-            <table class="table text-start align-middle table-bordered table-hover mb-0" id="StudentsTable">
-                    <thead>
-                        <tr class="text-white">
-                            <th scope="col">Формулировка темы</th>
-                            <th scope="col">Состав бригады</th>
-                            <th scope="col">Действия с членами бригады</th>
-                        </tr>
-                    </thead>
-                    <tbody>
                         @{
-                            foreach (var themes in Model.getTeacher.Themes)
+                            foreach (var faculty in Model.faculties)
                             {
-                                List<Student> studentsList = new List<Student>();
-                                <tr data-category="ToChangeVisibilityTheme">
-                                    <td>@themes.ThemeFormulation</td>
-                                    @{
-                                        Team team = themes.Teams.FirstOrDefault();
-                                        if (team != null)
-                                        {
-                                            int count = 1;
-                                            if (team.Students.Count == 0)
-                                            {
-                                                <td data-faculty=""> <button class="btn btn-success rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', studentId: '0', themeId: '@themes.Id' })" data-toggle="ajax-modal" data-target="Modal"> Добавить </button></td>
-                                                <td></td>
-                                                continue;
-                                            }
-                                            Student studentSave = null;
-                                            foreach (var student in team.Students)
-                                            {
-                                                if (count > 1)
-                                                {
-                                                    studentsList.Add(student);
-                                                    continue;
-                                                }
-                                                studentSave = student;
-                                                <td data-faculty="@student.Faculty.FacultyName"> <button class="btn btn-warning rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', studentId: '@student.Id', themeId: '@themes.Id' })" data-toggle="ajax-modal" data-target="Modal"> @student.Initials @student.Faculty.FacultyName </button> </td>
-                                                ++count;
-                                            }
-                                            <td>
-                                                <form asp-controller="Teachers" asp-action="DeleteStudent" method="post" asp-route-studentId="@studentSave.Id">
-                                                    <button class="btn btn-sm btn-primary">Удалить</button>
-                                                </form>
-                                            </td>
-                                        }   
-                                        else
-                                        {
-                                            <td></td>
-                                            <td></td>
-                                        }
-                                    }
-                                </tr>
-                                foreach (var student in studentsList)
-                                {
-                                    <tr>
-                                        <td></td>
-                                        <td data-faculty="@student.Faculty.FacultyName"><button class="btn btn-warning rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', studentId: '@student.Id', themeId: '@themes.Id' })" data-toggle="ajax-modal" data-target="Modal"> @student.Initials @student.Faculty.FacultyName </button></td>
-                                        <td>
-                                            <form asp-controller="Teachers" asp-action="DeleteStudent" method="post" asp-route-studentId="@student.Id">
-                                                <button class="btn btn-sm btn-primary">Удалить</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                }
-                                <tr>
-                                    <td></td>
-                                    <td><button class="btn btn-success rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', studentId: '0', themeId: '@themes.Id' })" data-toggle="ajax-modal" data-target="Modal"> Добавить </button></td>
-                                    <td></td>
-                                </tr>
+                                    <option data-selectedValue="@faculty.FacultyName">
+                                    @faculty.FacultyName
+                                    </option>
                             }
                         }
-                    </tbody>
-                </table>
+                    </select>
+                    
+                </div>
+                
+                <div>
+                    <label for="floatingSelect">Курс:</label>
+                    <select class="form-select" id="StudentCourseFilter" aria-label="Floating label select example">
+                    <option selected data-selectedValue="Нет">Нет</option>
+                        @{
+                            foreach (var course in Model.courses)
+                            {
+                                    <option data-selectedValue="@course.Course1">
+                                        @course.Course1
+                                    </option>
+                            }
+                        }
+                    </select>
+                    
+                </div>
+                
+
+                    <div class="table-responsive" id="StudentsTable">
+                    <table class="table text-start align-middle table-bordered table-hover mb-0" id="StudentsTable">
+                            <thead>
+                                <tr class="text-white">
+                                    <th scope="col">Формулировка темы</th>
+                                    <th scope="col">Состав бригады</th>
+                                    <th scope="col">Действия с членами бригады</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var themes in Model.getTeacher.Themes)
+                                    {
+                                        List<Student> studentsList = new List<Student>();
+                                        <tr data-category="ToChangeVisibilityTheme">
+                                            <td>@themes.ThemeFormulation</td>
+                                            @{
+                                                Team team = themes.Teams.FirstOrDefault();
+                                                if (team != null)
+                                                {
+                                                    int count = 1;
+                                                    if (team.Students.Count == 0)
+                                                    {
+                                                        <td> <button class="btn btn-success rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', studentId: '0', themeId: '@themes.Id' })" data-toggle="ajax-modal" data-target="Modal"> Добавить </button></td>
+                                                        <td></td>
+                                                        continue;
+                                                    }
+                                                    Student studentSave = null;
+                                                    foreach (var student in team.Students)
+                                                    {
+                                                        if (count > 1)
+                                                        {
+                                                            studentsList.Add(student);
+                                                            continue;
+                                                        }
+                                                        studentSave = student;
+                                                        <td data-faculty="@student.Faculty.FacultyName" data-course="@student.Course.Course1"> <button class="btn btn-warning rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', studentId: '@student.Id', themeId: '@themes.Id' })" data-toggle="ajax-modal" data-target="Modal"> @student.Initials @student.Faculty.FacultyName @student.Course.Course1 </button> </td>
+                                                        ++count;
+                                                    }
+                                                    <td>
+                                                        <form asp-controller="Teachers" asp-action="DeleteStudent" method="post" asp-route-studentId="@studentSave.Id">
+                                                            <button class="btn btn-sm btn-primary">Удалить</button>
+                                                        </form>
+                                                    </td>
+                                                }   
+                                                else
+                                                {
+                                                    <td></td>
+                                                    <td></td>
+                                                }
+                                            }
+                                        </tr>
+                                        foreach (var student in studentsList)
+                                        {
+                                            <tr>
+                                                <td></td>
+                                                <td data-faculty="@student.Faculty.FacultyName" data-course="@student.Course.Course1"><button class="btn btn-warning rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', studentId: '@student.Id', themeId: '@themes.Id' })" data-toggle="ajax-modal" data-target="Modal"> @student.Initials @student.Faculty.FacultyName @student.Course.Course1 </button></td>
+                                                <td>
+                                                    <form asp-controller="Teachers" asp-action="DeleteStudent" method="post" asp-route-studentId="@student.Id">
+                                                        <button class="btn btn-sm btn-primary">Удалить</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        }
+                                        <tr>
+                                            <td></td>
+                                            <td><button class="btn btn-success rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', studentId: '0', themeId: '@themes.Id' })" data-toggle="ajax-modal" data-target="Modal"> Добавить </button></td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                </div>
             </div>
+            
     </div>
 </div>
