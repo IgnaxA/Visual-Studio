@@ -14,21 +14,27 @@ namespace Practice.Data.Mocks
 
         public async Task<IEnumerable<Course>> GetEntities() => await db.Courses.ToListAsync();
 
-        public Task<bool> AddEntity(Course entity)
+        public async Task<bool> AddEntity(Course entity)
         {
-            throw new NotImplementedException();
+            await db.Courses.AddAsync(entity);
+            await db.SaveChangesAsync();
+            return true;
         }
 
-        public Task<bool> DeleteEntity(Course entity)
+        public async Task<bool> DeleteEntity(Course entity)
         {
-            throw new NotImplementedException();
+            db.Courses.Remove(entity);
+            await db.SaveChangesAsync();
+            return true;
         }
 
         public async Task<Course> GetEntity(int id) => await db.Courses.SingleOrDefaultAsync(course => course.Id == id);
 
-        public Task<bool> UpdateEntity(Course entity)
+        public async Task<bool> UpdateEntity(Course entity)
         {
-            throw new NotImplementedException();
+            db.Courses.Update(entity);
+            await db.SaveChangesAsync();
+            return true;
         }
     }
 }

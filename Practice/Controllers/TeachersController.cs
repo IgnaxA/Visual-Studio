@@ -42,7 +42,6 @@ namespace Practice.Controllers
         public async Task<IActionResult> DeleteTheme(int themeId)
         {
             Theme theme = await _themes.GetEntity(themeId);
-
             _report.AddActionToExcel("Удаление темы:", $"{theme.ThemeFormulation}", DateTime.Now);
             await _themes.DeleteEntity(theme);
             return RedirectToAction("TeachersList");

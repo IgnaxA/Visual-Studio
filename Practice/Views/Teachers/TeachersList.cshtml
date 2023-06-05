@@ -8,7 +8,7 @@
             <a href="">Show All</a>
         </div>
         <div class="table-responsive" margin-bottom: 100px>
-            <h2>Работа с темами</h2>
+            <h2>Управление темами</h2>
             <table class="table text-start align-middle table-bordered table-hover mb-0">
                 <thead>
                     <tr class="text-white">
@@ -42,11 +42,6 @@
                                 <form asp-controller="Teachers" asp-action="DeleteTheme" method="post" asp-route-themeId="@theme.Id">
                                     <button class="btn btn-primary m-2">Удалить</button>
                                 </form>
-
-                                
-                                
-                                
-                                
                                 </td>
                             </tr>
                         }
@@ -62,7 +57,6 @@
                     }
                 </tbody>
             </table>
-            
         </div>
         <h1></h1>
         
@@ -137,7 +131,11 @@
                                                             continue;
                                                         }
                                                         studentSave = student;
-                                                        <td data-faculty="@student.Faculty.FacultyName" data-course="@student.Course.Course1"> <button class="btn btn-warning rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', studentId: '@student.Id', themeId: '@themes.Id' })" data-toggle="ajax-modal" data-target="Modal"> @student.Initials @student.Faculty.FacultyName @student.Course.Course1 </button> </td>
+                                                        <td data-faculty="@student.Faculty.FacultyName" data-course="@student.Course.Course1"> 
+                                                            <button class="btn btn-warning rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', studentId: '@student.Id', themeId: '@themes.Id' })" data-toggle="ajax-modal" data-target="Modal"> 
+                                                                @student.Initials 
+                                                            </button> 
+                                                        </td>
                                                         ++count;
                                                     }
                                                     <td>
@@ -157,7 +155,7 @@
                                         {
                                             <tr>
                                                 <td></td>
-                                                <td data-faculty="@student.Faculty.FacultyName" data-course="@student.Course.Course1"><button class="btn btn-warning rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', studentId: '@student.Id', themeId: '@themes.Id' })" data-toggle="ajax-modal" data-target="Modal"> @student.Initials @student.Faculty.FacultyName @student.Course.Course1 </button></td>
+                                                <td data-faculty="@student.Faculty.FacultyName" data-course="@student.Course.Course1"><button class="btn btn-warning rounded-pill m-2" onclick="openModal( { url: '/Teachers/ShowStudentInfo', studentId: '@student.Id', themeId: '@themes.Id' })" data-toggle="ajax-modal" data-target="Modal"> @student.Initials </button></td>
                                                 <td>
                                                     <form asp-controller="Teachers" asp-action="DeleteStudent" method="post" asp-route-studentId="@student.Id">
                                                         <button class="btn btn-sm btn-primary">Удалить</button>

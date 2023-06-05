@@ -14,21 +14,27 @@ namespace Practice.Data.Mocks
 
         public async Task<IEnumerable<Role>> GetEntities() => await db.Roles.ToListAsync();
 
-        public Task<bool> AddEntity(Role entity)
+        public async Task<bool> AddEntity(Role entity)
         {
-            throw new NotImplementedException();
+            await db.Roles.AddAsync(entity);
+            await db.SaveChangesAsync();
+            return true;
         }
 
-        public Task<bool> DeleteEntity(Role entity)
+        public async Task<bool> DeleteEntity(Role entity)
         {
-            throw new NotImplementedException();
+            db.Roles.Remove(entity);
+            await db.SaveChangesAsync();
+            return true;
         }
 
         public async Task<Role> GetEntity(int id) => await db.Roles.FirstOrDefaultAsync(role => role.Id == id);
 
-        public Task<bool> UpdateEntity(Role entity)
+        public async Task<bool> UpdateEntity(Role entity)
         {
-            throw new NotImplementedException();
+            db.Roles.Update(entity);
+            await db.SaveChangesAsync();
+            return true;
         }
     }
 }

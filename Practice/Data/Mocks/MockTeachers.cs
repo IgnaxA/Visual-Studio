@@ -13,9 +13,11 @@ namespace Practice.Data.Mocks
             this.db = db;
         }
 
-        public Task<bool> AddEntity(Teacher entity)
+        public async Task<bool> AddEntity(Teacher entity)
         {
-            throw new NotImplementedException();
+            await db.Teachers.AddAsync(entity);
+            await db.SaveChangesAsync();
+            return true;
         }
 
         public async Task<Teacher> GetEntity(int id) => await db.Teachers.Include(teacher => teacher.Themes)
@@ -24,14 +26,18 @@ namespace Practice.Data.Mocks
             .ThenInclude(students => students.Faculty)
             .FirstOrDefaultAsync(teacher => teacher.Id == id);
 
-        public Task<bool> UpdateEntity(Teacher entity)
+        public async Task<bool> UpdateEntity(Teacher entity)
         {
-            throw new NotImplementedException();
+            db.Teachers.Update(entity);
+            await db.SaveChangesAsync();
+            return true;
         }
 
-        public Task<bool> DeleteEntity(Teacher entity)
+        public async Task<bool> DeleteEntity(Teacher entity)
         {
-            throw new NotImplementedException();
+            db.Teachers.Remove(entity);
+            await db.SaveChangesAsync();
+            return true;
         }
     }
 }

@@ -12,26 +12,29 @@ namespace Practice.Data.Mocks
             this.db = db;
         }
 
-        public Task<bool> AddEntity(Deadline entity)
+        public async Task<bool> AddEntity(Deadline entity)
         {
-            throw new NotImplementedException();
+            await db.Deadlines.AddAsync(entity);
+            await db.SaveChangesAsync();
+            return true;
         }
 
-        public Task<bool> DeleteEntity(Deadline entity)
+        public async Task<bool> DeleteEntity(Deadline entity)
         {
-            throw new NotImplementedException();
+            db.Deadlines.Remove(entity);
+            await db.SaveChangesAsync();
+            return true;
         }
 
         public async Task<IEnumerable<Deadline>> GetEntities() => await db.Deadlines.ToListAsync();
 
-        public Task<Deadline> GetEntity(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<Deadline> GetEntity(int id) => await db.Deadlines.FirstOrDefaultAsync(deadline => deadline.Id == id);
 
-        public Task<bool> UpdateEntity(Deadline entity)
+        public async Task<bool> UpdateEntity(Deadline entity)
         {
-            throw new NotImplementedException();
+            db.Deadlines.Update(entity);
+            await db.SaveChangesAsync();
+            return true;
         }
     }
 }
