@@ -13,8 +13,16 @@
       "PackagePath": "staticwebassets\\img\\user.jpg"
     },
     {
+      "Id": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\js\\ActionMessage.js",
+      "PackagePath": "staticwebassets\\js\\ActionMessage.js"
+    },
+    {
       "Id": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\js\\ChangeVisibility.js",
       "PackagePath": "staticwebassets\\js\\ChangeVisibility.js"
+    },
+    {
+      "Id": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\js\\ChangeVisibilytyDeadline.js",
+      "PackagePath": "staticwebassets\\js\\ChangeVisibilytyDeadline.js"
     },
     {
       "Id": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\js\\CreateReport.js",

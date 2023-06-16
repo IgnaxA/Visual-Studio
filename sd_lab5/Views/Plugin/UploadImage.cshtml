@@ -1,0 +1,27 @@
+﻿@model UploadImageViewModel
+
+<div>
+	<form asp-controller="Plugin" asp-action="UploadImage" method="post" enctype="multipart/form-data">
+		<div asp-validation-summary="ModelOnly" />
+		<div>
+			<label>Выберите изображение: </label>
+			<input asp-for="Image" accept="image/*"></input>
+		</div>
+
+		<div>
+			<button type="submit">Загрузить</button>
+		</div>
+	</form>
+</div>
+
+@if (Model.pluginsImages != null)
+{
+
+	foreach (var plugin in Model.pluginsImages)
+	{
+		<h1>@plugin.Key</h1>
+		<div>
+			<img src="@Url.Content(plugin.Value)" width="500" height="500" />
+		</div>
+	}
+}

@@ -92,7 +92,7 @@ namespace SDLab3.RenameWindows
                 return;
             }
 
-            if (WorkerInitials.Text.Split().Length < 2)
+            if (WorkerInitials.Text.Trim().Split().Length < 2)
             {
                 MessageBox.Show("Введите корректные инициалы сотрудника!");
                 return;

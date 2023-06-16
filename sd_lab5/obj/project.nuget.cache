@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Br17dQbYgETmCk98CR4/L7h3xpy6HEAyN4J4l5FOwuv0mCcqzGjDaFU/c4LZOuBiJi41oVJXtoLrgJMybmmLcA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\sd_lab5\\sd_lab5.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nate_higgers\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\nate_higgers\\.nuget\\packages\\sixlabors.imagesharp\\3.0.1\\sixlabors.imagesharp.3.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

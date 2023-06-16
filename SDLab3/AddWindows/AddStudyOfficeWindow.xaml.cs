@@ -82,7 +82,13 @@ namespace SDLab3.AddWindows
                 return;
             }
 
-            bool isAdressOk = CheckEmailAdress();
+			if (WorkerInitials.Text.Trim().Split().Length < 2)
+			{
+				MessageBox.Show("Введите корректные инициалы сотрудника!");
+				return;
+			}
+
+			bool isAdressOk = CheckEmailAdress();
 
             if (!isAdressOk)
             {

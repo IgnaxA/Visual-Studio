@@ -1,0 +1,57 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = sd_lab5
+build_property.RootNamespace = sd_lab5
+build_property.ProjectDir = C:\Users\nate_higgers\Desktop\Visual Studio\sd_lab5\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\nate_higgers\Desktop\Visual Studio\sd_lab5
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/nate_higgers/Desktop/Visual Studio/sd_lab5/Views/Plugin/ShowPlugins.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGx1Z2luXFNob3dQbHVnaW5zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nate_higgers/Desktop/Visual Studio/sd_lab5/Views/Plugin/UploadImage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGx1Z2luXFVwbG9hZEltYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nate_higgers/Desktop/Visual Studio/sd_lab5/Views/Shared/Partial/FooterPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxcRm9vdGVyUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nate_higgers/Desktop/Visual Studio/sd_lab5/Views/Shared/Partial/HeaderPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxcSGVhZGVyUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nate_higgers/Desktop/Visual Studio/sd_lab5/Views/Shared/Partial/LinksPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxcTGlua3NQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nate_higgers/Desktop/Visual Studio/sd_lab5/Views/Shared/Partial/ScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxcU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nate_higgers/Desktop/Visual Studio/sd_lab5/Views/Shared/Partial/TagsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxcVGFnc1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nate_higgers/Desktop/Visual Studio/sd_lab5/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nate_higgers/Desktop/Visual Studio/sd_lab5/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nate_higgers/Desktop/Visual Studio/sd_lab5/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-5esn4ct9ub

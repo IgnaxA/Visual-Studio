@@ -74,7 +74,7 @@ namespace Practice.Controllers
                     model.MaterialsLink =  (await _themes.GetEntity(themeId)).Teams.FirstOrDefault().MaterialsLink;
                     break;
             }
-            return View(model);
+            return PartialView("SaveTheme", model);
         }
 
         [HttpPost]
@@ -82,7 +82,7 @@ namespace Practice.Controllers
         {
             if (!ModelState.IsValid) 
             {
-                return View(model);
+                return RedirectToAction("TeachersList");
             }
 
             switch(model.id)
@@ -124,7 +124,7 @@ namespace Practice.Controllers
             switch (studentId)
             {
                 case 0:
-                    
+
                     break;
 
                 default:
@@ -146,7 +146,7 @@ namespace Practice.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return PartialView("ShowStudent", model);
+                return RedirectToAction("TeachersList");
             }
 
             switch (model.Id)

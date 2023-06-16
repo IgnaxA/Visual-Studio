@@ -1,10 +1,303 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model DeadlinesViewModel
+
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-secondary text-center rounded p-4">
+        <<h2>Управление дедлайнами</h2>
+        <div class="w-50">
+            <label for="floatingSelect">Факультет:</label>
+            <select class="form-select" id="DeadlineFilter" aria-label="Floating label select example">
+                <option selected data-selectedValue="-1">
+                    Нет
+                </option>
+                <option data-selectedValue="0">
+                    Выполняется
+                </option>
+                <option data-selectedValue="1">
+                    Сдан
+                </option>
+                <option data-selectedValue="2">
+                    Доделывается
+                </option>
+                <option data-selectedValue="3">
+                    Просрочен
+                </option>
+            </select>
+        </div>
+        <div class="table-responsive pt-4" id="DeadlinesTable">
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <thead>
+                    <tr class="text-white">
+                        <th scope="col">Команда</th>
+                        <th scope="col">Дата дедлайна</th>
+                        <th scope="col">Комментарий к дедлайну</th>
+                        <th scope="col">Статус дедлайна</th>
+                        <th scope="col">Действие с дедлайном</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var themes in Model.getTeacher.Themes)
+                        {
+                            List<Deadline> deadlineList = new List<Deadline>();
+                    
+                            <tr data-category="ToChangeVisibilityTheme">
+                        
+                                @{
+                                    Team team = themes.Teams.FirstOrDefault();
+                                    if (themes.Teams == null)
+                                    {
+                                        <td>@themes.ThemeFormulation</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        continue;
+
+                                    }
+
+                                    int count = 1;
+                                    if (team.Deadlines.Count == 0)
+                                    {
+                                        <td>@themes.ThemeFormulation</td>
+                                        <td> <button class="btn btn-success m-2" onclick="openModal( { url: '/Deadlines/DeadlineSave', deadlineId: '0', themeId: '@themes.Teams.FirstOrDefault().Id' })" data-toggle="ajax-modal" data-target="Modal"> Добавить </button> </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        continue;
+                                    }
+                                    <td>@themes.ThemeFormulation</td>
+                                    foreach (var deadline in team.Deadlines)
+                                    {
+                                        if (count > 1)
+                                        {
+                                            deadlineList.Add(deadline);
+                                            continue;
+                                        }
+                                        <td> 
+                                            @deadline.DeadLineDate.Date
+                                        </td>
+                                        <td> 
+                                            @deadline.Commentary
+                                        </td>
+                                        if (deadline.AttendanceMark == 0)
+                                        {
+                                            <td data-attendantMark="0">
+                                                Выполняется
+                                            </td>
+                                        }
+                                        if (deadline.AttendanceMark == 1)
+                                        {
+                                            <td data-attendantMark="1">
+                                                Сдан
+                                            </td>
+                                        }
+                                        if (deadline.AttendanceMark == 2)
+                                        {
+                                            <td data-attendantMark="2">
+                                                Доделывается
+                                            </td>
+                                        }
+                                        if (deadline.AttendanceMark == 3)
+                                        {
+                                            <td data-attendantMark="3">
+                                                Просрочен
+                                            </td>
+                                        }
+
+                                        <td>
+                                            <button class="btn btn-warning m-2" onclick="openModal( { url: '/Deadlines/DeadlineSave', deadlineId: '@deadline.Id', themeId: '@themes.Teams.FirstOrDefault().Id' })" data-toggle="ajax-modal" data-target="Modal"> 
+                                                Изменить 
+                                            </button>
+
+                                            <form asp-controller="Deadlines" asp-action="DeadlineDelete" method="post" asp-route-deadlineId="@deadline.Id">
+                                                <button class="btn btn-primary m-2">Удалить</button>
+                                            </form>
+                                        </td>
+                                        ++count;
+                                    }
+                                }
+                            </tr>
+                            foreach (var deadline in deadlineList)
+                            {
+                                string attendanceMarkName = "";
+                                int attendanceMarkId = -1;
+                                if (deadline.AttendanceMark == 0)
+                                {
+                                    attendanceMarkName = "Выполняется";
+                                    attendanceMarkId = 0;
+                                }
+                                if (deadline.AttendanceMark == 1)
+                                {
+
+                                    attendanceMarkName = "Сдан";
+                                    attendanceMarkId = 1;
+
+                                }
+                                if (deadline.AttendanceMark == 2)
+                                {
+                                    attendanceMarkName = "Доделывается";
+                                    attendanceMarkId = 2;
+                                }
+                                if (deadline.AttendanceMark == 3)
+                                {
+                                    attendanceMarkName = "Просрочен";
+                                    attendanceMarkId = 3;
+                                }
+                                <tr>
+                                    <td> </td>
+                                    <td> 
+                                        @deadline.DeadLineDate.Date
+                                    </td>
+                                    <td> 
+                                        @deadline.Commentary
+                                    </td>
+                                    <td data-attendantMark="@attendanceMarkId">
+                                        @attendanceMarkName
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-warning m-2" onclick="openModal( { url: '/Deadlines/DeadlineSave', deadlineId: '@deadline.Id', themeId: '@themes.Teams.FirstOrDefault().Id' })" data-toggle="ajax-modal" data-target="Modal"> 
+                                            Изменить 
+                                        </button>
+
+                                        <form asp-controller="Deadlines" asp-action="DeadlineDelete" method="post" asp-route-deadlineId="@deadline.Id">
+                                                <button class="btn btn-primary m-2">Удалить</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                            <tr>
+                                <td></td>
+                                <td><button class="btn btn-success rounded-pill m-2" onclick="openModal( { url: '/Deadlines/DeadlineSave', deadlineId: '0', themeId: '@themes.Teams.FirstOrDefault().Id' })" data-toggle="ajax-modal" data-target="Modal"> Добавить </button></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 
-<div>
-    <h1>Дедлайны</h1>
+    <div class="bg-secondary text-center rounded p-4">
+        <<h2>Управление консультациями</h2>
+
+        <div class="table-responsive pt-4" id="DeadlinesTable">
+            <table class="table text-start align-middle table-bordered table-hover mb-0" >
+                <thead>
+                    <tr class="text-white">
+                        <th scope="col">Дата дедлайна</th>
+                        <th scope="col">Комментарий</th>
+                        <th scope="col">Дата консультации</th>
+                        <th scope="col">Отметка присутствия</th>
+                        <th scope="col">Действие с дедлайном</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var themes in Model.getTeacher.Themes)
+                        {
+                            List<Consultation> consultationList = new List<Consultation>();
+                            Team team = themes.Teams.FirstOrDefault();
+                            if (themes.Teams == null)
+                            {
+                                continue;
+                            }
+                            foreach (var deadline in team.Deadlines)
+                            {
+                                List<Consultation> consultations = deadline.Consultations.ToList();
+                                if (consultations.Count == 0)
+                                {
+                                    <tr>
+                                        <td>@deadline.DeadLineDate</td>
+                                        <td>@deadline.Commentary</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><button class="btn btn-success rounded-pill m-2" onclick="openModal( { url: '/Deadlines/ConsultationSave', deadlineId: '@deadline.Id', consultationId: '0'})" data-toggle="ajax-modal" data-target="Modal"> Добавить </button></td>
+                                    </tr>
+                                    continue;
+                                }
+                                Consultation firstConsultation = consultations.FirstOrDefault();
+                                consultations.Remove(firstConsultation);
+                                <tr>
+                                    <td>@deadline.DeadLineDate</td>
+                                    <td>@deadline.Commentary</td>
+                                    <td>@firstConsultation.Date</td>
+                                    @{
+                                        if (firstConsultation.AttendanceMark == 0)
+                                        {
+                                            <td>Консультация еще не была</td>
+                                        }
+                                        if (firstConsultation.AttendanceMark == 1)
+                                        {
+                                            <td>Пришли</td>
+                                        }
+                                        if (firstConsultation.AttendanceMark == 2)
+                                        {
+                                            <td>Не пришли</td>
+                                        }
+                                    }
+                                    
+                                    <td>
+                                        <button class="btn btn-warning m-2" onclick="openModal( { url: '/Deadlines/ConsultationSave', consultationId: '@firstConsultation.Id' })" data-toggle="ajax-modal" data-target="Modal"> 
+                                            Изменить 
+                                        </button>
+
+                                        <form asp-controller="Deadlines" asp-action="ConsultationDelete" method="post" asp-route-consultationID="@firstConsultation.Id">
+                                            <button class="btn btn-primary m-2">Удалить</button>
+                                        </form>
+                                    </td>
+                                </tr>
+
+
+
+                                foreach (var consultation in consultations)
+                                {
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>@consultation.Date</td>
+                                        @{
+                                            if (consultation.AttendanceMark == 0)
+                                            {
+                                                <td>Консультация еще не была</td>
+                                            }
+                                            if (consultation.AttendanceMark == 1)
+                                            {
+                                                <td>Пришли</td>
+                                            }
+                                            if (consultation.AttendanceMark == 2)
+                                            {
+                                                <td>Не пришли</td>
+                                            }
+                                        }
+                                        
+                                        <td>
+                                            <button class="btn btn-warning m-2" onclick="openModal( { url: '/Deadlines/ConsultationSave', consultationId: '@consultation.Id' })" data-toggle="ajax-modal" data-target="Modal"> 
+                                                Изменить 
+                                            </button>
+
+                                            <form asp-controller="Deadlines" asp-action="ConsultationDelete" method="post" asp-route-consultationID="@consultation.Id">
+                                                    <button class="btn btn-primary m-2">Удалить</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><button class="btn btn-success rounded-pill m-2" onclick="openModal( { url: '/Deadlines/ConsultationSave', deadlineId: '@deadline.Id' })" data-toggle="ajax-modal" data-target="Modal"> Добавить </button></td>
+                                </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+
+<script src="~/js/ChangeVisibilytyDeadline.js"></script>

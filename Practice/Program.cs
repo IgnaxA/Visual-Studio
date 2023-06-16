@@ -21,6 +21,7 @@ builder.Services.AddTransient<IDeadlines, MockDeadline>();
 builder.Services.AddTransient<IConsultations, MockConsultations>();
 builder.Services.AddTransient<IDegrees, MockDegrees>();
 builder.Services.AddTransient<IEmploymentTypes, MockEmploymentTypes>();
+
 builder.Services.AddSingleton<ReportService>();
 
 builder.Services.AddDbContext<InformationSystemToRecordProjectActivitiesDatabaseContext>();

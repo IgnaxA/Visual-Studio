@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\nate_higgers\Desktop\Visual Studio\Palitra\App.xaml
-42050813728
+5-1710404580
 
-14-1530828871
+15-601489159
 194-1797456590
-AnalogClock\AnalogClock.xaml;DigitalClock\DigitalClock.xaml;MainWindow.xaml;Palette\Palette.xaml;
+AnalogClock\AnalogClock.xaml;DigitalClock\DigitalClock.xaml;MainWindow.xaml;Palette\Palette.xaml;Window1.xaml;
 
-False
+True
 

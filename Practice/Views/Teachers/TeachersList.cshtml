@@ -3,10 +3,6 @@
 
 <div class="container-fluid pt-4 px-4">
     <div class="bg-secondary text-center rounded p-4">
-        <div class="d-flex align-items-center justify-content-between mb-4">
-            <h6 class="mb-0"></h6>
-            <a href="">Show All</a>
-        </div>
         <div class="table-responsive" margin-bottom: 100px>
             <h2>Управление темами</h2>
             <table class="table text-start align-middle table-bordered table-hover mb-0">
@@ -36,8 +32,9 @@
                                 }
                                 <td>
 
-
-                                <a class="btn btn-warning m-2" asp-controller="Teachers" asp-action="SaveTheme" method="get" asp-route-themeId="@theme.Id">Изменить</a>
+                                <button class="btn btn-warning m-2" onclick="openModal( { url: '/Teachers/SaveTheme', themeId: '@theme.Id' })" data-toggle="ajax-modal" data-target="Modal"> 
+                                    Изменить 
+                                </button>
 
                                 <form asp-controller="Teachers" asp-action="DeleteTheme" method="post" asp-route-themeId="@theme.Id">
                                     <button class="btn btn-primary m-2">Удалить</button>
@@ -49,9 +46,12 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <form asp-controller="Teachers" asp-action="SaveTheme" method="get">
-                                    <button class="btn btn-success m-2">Добавить</button>
-                                </form>
+                                <button class="btn btn-success m-2" onclick="openModal( { url: '/Teachers/SaveTheme', themeId: '0' })" data-toggle="ajax-modal" data-target="Modal"> 
+                                    Добавить 
+                                </button>
+                                <!--<form asp-controller="Teachers" asp-action="SaveTheme" method="get">
+                                    <button class="">Добавить</button>
+                                </form>-->
                             </td>
                         </tr>
                     }
@@ -60,43 +60,46 @@
         </div>
         <h1></h1>
         
-            <h2>Работа с командами</h2>
+            <h2 class="pt-4">Управление командами</h2>
             <div class="m-n2"  aria-label=".form-select-sm example">
-                <div>
-                    <label for="floatingSelect">Факультет:</label>
-                    <select class="form-select" id="StudentFacultyFilter" aria-label="Floating label select example">
-                    <option selected data-selectedValue="Нет">Нет</option>
-                        @{
-                            foreach (var faculty in Model.faculties)
-                            {
-                                    <option data-selectedValue="@faculty.FacultyName">
-                                    @faculty.FacultyName
-                                    </option>
+
+                <div class="row g-4 w-50">
+                    <div class="col-sm6 w-50">
+                        <label for="floatingSelect">Факультет:</label>
+                        <select class="form-select" id="StudentFacultyFilter" aria-label="Floating label select example">
+                        <option selected data-selectedValue="Нет">Нет</option>
+                            @{
+                                foreach (var faculty in Model.faculties)
+                                {
+                                        <option data-selectedValue="@faculty.FacultyName">
+                                        @faculty.FacultyName
+                                        </option>
+                                }
                             }
-                        }
-                    </select>
+                        </select>
+                    </div>
                     
-                </div>
-                
-                <div>
-                    <label for="floatingSelect">Курс:</label>
-                    <select class="form-select" id="StudentCourseFilter" aria-label="Floating label select example">
-                    <option selected data-selectedValue="Нет">Нет</option>
-                        @{
-                            foreach (var course in Model.courses)
-                            {
-                                    <option data-selectedValue="@course.Course1">
-                                        @course.Course1
-                                    </option>
+                    <div class="col-sm6 w-50">
+                        <label for="floatingSelect">Курс:</label>
+                        <select class="form-select" id="StudentCourseFilter" aria-label="Floating label select example">
+                        <option selected data-selectedValue="Нет">Нет</option>
+                            @{
+                                foreach (var course in Model.courses)
+                                {
+                                        <option data-selectedValue="@course.Course1">
+                                            @course.Course1
+                                        </option>
+                                }
                             }
-                        }
-                    </select>
+                        </select>    
+                    </div>
+                    
                     
                 </div>
                 
 
-                    <div class="table-responsive" id="StudentsTable">
-                    <table class="table text-start align-middle table-bordered table-hover mb-0" id="StudentsTable">
+                    <div class="table-responsive pt-4" id="StudentsTable">
+                    <table class="table text-start align-middle table-bordered table-hover mb-0" >
                             <thead>
                                 <tr class="text-white">
                                     <th scope="col">Формулировка темы</th>
@@ -177,3 +180,5 @@
             
     </div>
 </div>
+
+<script src="~/js/ChangeVisibility.js"></script>

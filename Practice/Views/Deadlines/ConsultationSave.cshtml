@@ -1,0 +1,60 @@
+﻿@model ConsultationSaveViewModel
+
+
+<div class="col-sm-12 col-xl-6 w-100">
+    <div class="bg-secondary rounded h-100 p-4">
+            <h6 class="mb-4">@ViewBag.tableName</h6>
+            <form asp-controller="Deadlines" asp-action="ConsultationSave" method="post">
+                <input asp-for="Id" hidden/>
+                <input asp-for="DeadlineId" hidden/>
+                <div asp-validation-summary="All"></div>
+
+                <div class="form-floating mb-3">
+                    <input type="date" class="form-control" id="floatingInput" placeholder="Введите дату дедлайна!" asp-for="ConsultationDate">
+                    <label for="floatingInput" asp-for="ConsultationDate"></label>
+                </div>
+
+                <div class="form-floating mb-3"  aria-label=".form-select-sm example">
+                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example" asp-for="AttendanceMark">
+                    @{
+                        if (Model.AttendanceMark == -1)
+                        {
+                                        <option selected>Нет</option>
+                        }
+                        else
+                        {
+                                        <option>Нет</option>
+                        }
+                        if (Model.AttendanceMark == 0)
+                        {
+                                        <option selected value="0">Консультация еще не была</option>
+                        }
+                        else
+                        {
+                                        <option value="0">Консультация еще не была</option>
+                        }
+                        if (Model.AttendanceMark == 1)
+                        {
+                                        <option selected value="1">Пришли</option>
+                        }
+                        else
+                        {
+                                        <option value="1">Пришли</option>
+                        }
+                        if (Model.AttendanceMark == 2)
+                        {
+                                        <option selected value="2">Не пришли</option>
+                        }
+                        else
+                        {
+                                        <option value="2">Не пришли</option>
+                        }
+                    }
+                    </select>
+                    <label for="floatingSelect">Статус консультации:</label>
+                </div>
+                <button class="btn btn-sm btn-primary">Сохранить</button>
+                <button class="btn btn-sm btn-primary" data-bs-dismiss="modal">Отменить</button>
+            </form>
+    </div>
+</div>

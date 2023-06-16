@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ccsDtW3zCpf1lBlYOgHNK4RfI1WjLXjE6to4Adym2Ro=",
+  "Hash": "P+TOyMVoxIHdzqOqeupI6dxqurGmM2Uh8UhgXUwf3+8=",
   "Source": "Practice",
   "BasePath": "_content/Practice",
   "Mode": "Default",
@@ -68,6 +68,23 @@
       "OriginalItemSpec": "wwwroot\\img\\user.jpg"
     },
     {
+      "Identity": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\js\\ActionMessage.js",
+      "SourceId": "Practice",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\",
+      "BasePath": "_content/Practice",
+      "RelativePath": "js/ActionMessage.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\ActionMessage.js"
+    },
+    {
       "Identity": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\js\\ChangeVisibility.js",
       "SourceId": "Practice",
       "SourceType": "Discovered",
@@ -83,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\ChangeVisibility.js"
+    },
+    {
+      "Identity": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\js\\ChangeVisibilytyDeadline.js",
+      "SourceId": "Practice",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\",
+      "BasePath": "_content/Practice",
+      "RelativePath": "js/ChangeVisibilytyDeadline.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\ChangeVisibilytyDeadline.js"
     },
     {
       "Identity": "C:\\Users\\nate_higgers\\Desktop\\Visual Studio\\Practice\\wwwroot\\js\\CreateReport.js",

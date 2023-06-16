@@ -26,6 +26,15 @@ namespace Practice.Data.Mocks
             .ThenInclude(students => students.Faculty)
             .FirstOrDefaultAsync(teacher => teacher.Id == id);
 
+
+        public async Task<Teacher> GetEntityDeadline(int id) => await db.Teachers.Include(teacher => teacher.Themes)
+            .ThenInclude(theme => theme.Teams)
+            .ThenInclude(team => team.Deadlines)
+            .ThenInclude(deadline => deadline.Consultations)
+            .FirstOrDefaultAsync(teacher => teacher.Id == id);
+
+
+
         public async Task<bool> UpdateEntity(Teacher entity)
         {
             db.Teachers.Update(entity);

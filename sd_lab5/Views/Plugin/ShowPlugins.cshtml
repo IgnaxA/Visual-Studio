@@ -1,0 +1,25 @@
+﻿@model ShowPluginsViewModel
+
+
+<h1>Список плагинов: </h1>
+
+<table>
+	<thead>
+		<th>Name</th>
+		<th>Author</th>
+		<th>Version</th>
+	</thead>
+
+	<tbody>
+		@{
+			foreach (var plugin in Model.pluginsList)
+			{
+				<tr>
+					<td>@plugin.Name</td>
+					<td>@plugin.Author</td>
+					<td>@plugin.Version</td>
+				</tr>
+			}
+		}
+	</tbody>
+</table>
