@@ -3,17 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SDLab3"
-        xmlns:addWindowsNamespace="clr-namespace:SDLab3.AddWindows"
-        xmlns:renameWindowsNamespace="clr-namespace:SDLab3.RenameWindows"
         mc:Ignorable="d"
         Title="Приложение для учета проектной деятельности студентов" Height="820" Width="1220">
-    <Window.Resources>
-        <addWindowsNamespace:AddStudyOfficeWindow x:Key="AddStudyOfficeWindow"/>
-        <addWindowsNamespace:AddTeacherWindow x:Key="AddTeacherWindow"/>
-        <addWindowsNamespace:AddThemeWindow x:Key="AddThemeWindow"/>
-        <renameWindowsNamespace:RenameStudyOfficeWindow x:Key="RenameStudyOfficeWindow"/>
-    </Window.Resources>
     <Grid>
         <StackPanel Orientation="Vertical">
             <TreeView x:Name="DatabaseView" Width="1180" Height="700" Margin="10 10 0 0" PreviewMouseRightButtonDown="DatabaseView_OnPreviewMouseRightButtonDown" ContextMenuOpening="ContextMenu_ContextMenuOpening">

@@ -56,40 +56,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="RenameWindows\RenameStudyOfficeWindow.xaml.cs">
-      <DependentUpon>RenameStudyOfficeWindow.xaml</DependentUpon>
+    <Compile Include="Configuration.cs" />
+    <Compile Include="SaveWindows\SaveStudyOfficeWindow.xaml.cs">
+      <DependentUpon>SaveStudyOfficeWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RenameWindows\RenameTeacherWindow.xaml.cs">
-      <DependentUpon>RenameTeacherWindow.xaml</DependentUpon>
+    <Compile Include="SaveWindows\SaveTeacherWindos.xaml.cs">
+      <DependentUpon>SaveTeacherWindos.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RenameWindows\RenameThemeWindow.xaml.cs">
-      <DependentUpon>RenameThemeWindow.xaml</DependentUpon>
+    <Compile Include="SaveWindows\SaveThemeWindow.xaml.cs">
+      <DependentUpon>SaveThemeWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddWindows\AddStudyOfficeWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AddWindows\AddTeacherWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AddWindows\AddThemeWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AddWindows\AddStudyOfficeWindow.xaml.cs">
-      <DependentUpon>AddStudyOfficeWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AddWindows\AddTeacherWindow.xaml.cs">
-      <DependentUpon>AddTeacherWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AddWindows\AddThemeWindow.xaml.cs">
-      <DependentUpon>AddThemeWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -98,15 +78,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="RenameWindows\RenameStudyOfficeWindow.xaml">
+    <Page Include="SaveWindows\SaveStudyOfficeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RenameWindows\RenameTeacherWindow.xaml">
+    <Page Include="SaveWindows\SaveTeacherWindos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RenameWindows\RenameThemeWindow.xaml">
+    <Page Include="SaveWindows\SaveThemeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

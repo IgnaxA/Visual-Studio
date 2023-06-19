@@ -1,5 +1,4 @@
-﻿using SDLab3.AddWindows;
-using SDLab3.RenameWindows;
+﻿using SDLab3.SaveWindows;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -193,19 +192,19 @@ namespace SDLab3
             currentAddSelectedItem = (TreeViewItem)DatabaseView.SelectedItem;
             if (DatabaseView.SelectedItem == null)
             {
-                AddStudyOfficeWindow addWindow = new AddStudyOfficeWindow(connect);
+                SaveStudyOfficeWindow addWindow = new SaveStudyOfficeWindow("Введите данные о сотруднике учебного офиса:");
                 addWindow.Show();
                 addWindow.Closed += AddStudyOfficeWindow_Closed;
             }
             else if (level == "0")
             {
-                AddTeacherWindow addWindow = new AddTeacherWindow(connect, Int32.Parse(id));
+                SaveTeacherWindos addWindow = new SaveTeacherWindos("Введите данные о преподавателе:", Int32.Parse(id));
                 addWindow.Show();
                 addWindow.Closed += AddTeacherWindow_Closed;
             }
             else if (level == "1")
             {
-                AddThemeWindow addWindow = new AddThemeWindow(connect, Int32.Parse(id));
+				SaveThemeWindow addWindow = new SaveThemeWindow("Введите данные о теме", Int32.Parse(id));
                 addWindow.Show();
                 addWindow.Closed += AddThemeWindow_Closed;
             }
@@ -214,7 +213,7 @@ namespace SDLab3
         private void AddStudyOfficeWindow_Closed(object sender, EventArgs e)
         {
             canCreateNewWindow = true;
-            AddStudyOfficeWindow window = (AddStudyOfficeWindow)sender;
+			SaveStudyOfficeWindow window = (SaveStudyOfficeWindow)sender;
             if (window.primaryKey == -1)
             {
                 return;
@@ -231,7 +230,7 @@ namespace SDLab3
         private void AddTeacherWindow_Closed(object sender, EventArgs e)
         {
             canCreateNewWindow = true;
-            AddTeacherWindow window = (AddTeacherWindow)sender;
+			SaveTeacherWindos window = (SaveTeacherWindos)sender;
             if (window.primaryKey == -1)
             {
                 return;
@@ -249,7 +248,7 @@ namespace SDLab3
         private void AddThemeWindow_Closed(object sender, EventArgs e)
         {
             canCreateNewWindow = true;
-            AddThemeWindow window = (AddThemeWindow)sender;
+			SaveThemeWindow window = (SaveThemeWindow)sender;
 
             if (window.primaryKey == -1)
             {
@@ -330,27 +329,53 @@ namespace SDLab3
 
         private void RenameNode_Click(object sender, RoutedEventArgs e)
         {
-            string level = ((TreeViewItem)DatabaseView.SelectedItem).Tag.ToString().Split()[1];
+			if (!canCreateNewWindow)
+			{
+				MessageBox.Show("Перед тем, как открыть новое окно изменения, закройте предыдущее!");
+				return;
+			}
+			canCreateNewWindow = false;
+			string level = ((TreeViewItem)DatabaseView.SelectedItem).Tag.ToString().Split()[1];
             string id = ((TreeViewItem)DatabaseView.SelectedItem).Tag.ToString().Split()[0];
 
             currentRenameSelectedItem = (TreeViewItem)DatabaseView.SelectedItem;
             if (level == "0")
             {
-                RenameStudyOfficeWindow window = new RenameStudyOfficeWindow(connect, Int32.Parse(id), ((TreeViewItem)DatabaseView.SelectedItem).Header.ToString(), ((TreeViewItem)DatabaseView.SelectedItem).Tag.ToString().Split()[2]);
+				SaveStudyOfficeWindow window = new SaveStudyOfficeWindow("Чтобы изменить данные о сотруднике, поменяйте поля ниже:", Int32.Parse(id), ((TreeViewItem)DatabaseView.SelectedItem).Header.ToString(), ((TreeViewItem)DatabaseView.SelectedItem).Tag.ToString().Split()[2]);
                 window.Show();
                 window.Closed += RenameStudyOfficeWindow_Closed;
             }
             if (level == "1")
             {
-                RenameTeacherWindow window = new RenameTeacherWindow(connect, Int32.Parse(id), ((TreeViewItem)DatabaseView.SelectedItem).Header.ToString(), Int32.Parse(((TreeViewItem)DatabaseView.SelectedItem).Tag.ToString().Split()[2]));
+				SaveTeacherWindos window = new SaveTeacherWindos("Чтобы изменить данные о сотруднике, поменяйте поля ниже:", Int32.Parse(id), ((TreeViewItem)DatabaseView.SelectedItem).Header.ToString(), Int32.Parse(((TreeViewItem)DatabaseView.SelectedItem).Tag.ToString().Split()[2]));
                 window.Show();
                 window.Closed += RenameTeacher_Closed;
             }
+            if (level == "2")
+            {
+                SaveThemeWindow window = new SaveThemeWindow("Чтобы изменить данные о теме, поменяйте поля ниже:", Int32.Parse(id), ((TreeViewItem)DatabaseView.SelectedItem).Header.ToString());
+                window.Show();
+				window.Closed += RenameTheme_Closed;
+            }
         }
 
-        private void RenameTeacher_Closed(object sender, EventArgs e)
+		private void RenameTheme_Closed(object sender, EventArgs e)
+		{
+			canCreateNewWindow = true;
+			SaveThemeWindow window = (SaveThemeWindow) sender;
+
+            if (!window.isChanged)
+            {
+                return;
+            }
+
+            currentRenameSelectedItem.Header = window.ThemeFormulation.Text;
+		}
+
+		private void RenameTeacher_Closed(object sender, EventArgs e)
         {
-            RenameTeacherWindow window = (RenameTeacherWindow) sender;
+			canCreateNewWindow = true;
+			SaveTeacherWindos window = (SaveTeacherWindos) sender;
 
             if (!window.isChanged)
             {
@@ -362,7 +387,8 @@ namespace SDLab3
 
         private void RenameStudyOfficeWindow_Closed(object sender, EventArgs e)
         {
-            RenameStudyOfficeWindow window = (RenameStudyOfficeWindow) sender;
+            canCreateNewWindow = true;
+			SaveStudyOfficeWindow window = (SaveStudyOfficeWindow) sender;
 
             if (!window.isChanged)
             {
