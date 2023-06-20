@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <line num="123,123">
+    <word num="3,2">asd</word>
+    <word num="2,0">asd</word>
+    <word num="1,5">asd</word>
+    <sum>6,7</sum>
+  </line>
+  <word num="15">
+    <sum>0</sum>
+  </word>
+  <line num="20">
+    <sum>0</sum>
+  </line>
+  <line num="50">
+    <sum>0</sum>
+  </line>
+  <line num="2345,123">
+    <sum>0</sum>
+  </line>
+  <line num="435,123">
+    <sum>0</sum>
+  </line>
+</root>

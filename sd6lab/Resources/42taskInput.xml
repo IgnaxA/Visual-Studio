@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<line num="123,123">
+		<word num="3,2">asd</word>
+		<word num="2,0">asd</word>
+		<word num="1,5">asd</word>
+	</line>
+	<word num="15"></word>
+	<line num="20"></line>
+	<line num="50"></line>
+	<line num="2345,123"></line>
+	<line num="435,123"></line>
+</root>

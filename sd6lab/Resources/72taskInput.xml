@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<Лидер>
+		<price street="ул.Чехова" brand="92">2200</price>
+		<price street="ул.Fgjfj" brand="92">1000</price>
+		<price street="ул.Мира" brand="150">4000</price>
+		<price street="ул.Гагарина" brand="40">15000</price>
+		<price street="ул.Ленина" brand="108">10000</price>
+	</Лидер>
+</root>

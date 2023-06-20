@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<record>
+		<id>10</id>
+		<date>2020-05-07T13:21:45</date>
+		<time>PT5H13M</time>
+	</record>
+	<record>
+		<id>30</id>
+		<date>2000-05-01T10:06:12</date>
+		<time>PT8H20M</time>
+	</record>
+	<record>
+		<id>50</id>
+		<date>2000-05-11T00:08:20</date>
+		<time>PT2H03M</time>
+	</record>
+	<record>
+		<id>245</id>
+		<date>2000-03-01T00:10:30</date>
+		<time>PT0H13M</time>
+	</record>
+</root>

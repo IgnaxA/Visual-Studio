@@ -1,0 +1,15 @@
+C:\Users\nate_higgers\Desktop\Visual Studio\sd6lab\bin\Debug\net7.0\sd6lab.exe
+C:\Users\nate_higgers\Desktop\Visual Studio\sd6lab\bin\Debug\net7.0\sd6lab.deps.json
+C:\Users\nate_higgers\Desktop\Visual Studio\sd6lab\bin\Debug\net7.0\sd6lab.runtimeconfig.json
+C:\Users\nate_higgers\Desktop\Visual Studio\sd6lab\bin\Debug\net7.0\sd6lab.dll
+C:\Users\nate_higgers\Desktop\Visual Studio\sd6lab\bin\Debug\net7.0\sd6lab.pdb
+C:\Users\nate_higgers\Desktop\Visual Studio\sd6lab\obj\Debug\net7.0\sd6lab.csproj.AssemblyReference.cache
+C:\Users\nate_higgers\Desktop\Visual Studio\sd6lab\obj\Debug\net7.0\sd6lab.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nate_higgers\Desktop\Visual Studio\sd6lab\obj\Debug\net7.0\sd6lab.AssemblyInfoInputs.cache
+C:\Users\nate_higgers\Desktop\Visual Studio\sd6lab\obj\Debug\net7.0\sd6lab.AssemblyInfo.cs
+C:\Users\nate_higgers\Desktop\Visual Studio\sd6lab\obj\Debug\net7.0\sd6lab.csproj.CoreCompileInputs.cache
+C:\Users\nate_higgers\Desktop\Visual Studio\sd6lab\obj\Debug\net7.0\sd6lab.dll
+C:\Users\nate_higgers\Desktop\Visual Studio\sd6lab\obj\Debug\net7.0\refint\sd6lab.dll
+C:\Users\nate_higgers\Desktop\Visual Studio\sd6lab\obj\Debug\net7.0\sd6lab.pdb
+C:\Users\nate_higgers\Desktop\Visual Studio\sd6lab\obj\Debug\net7.0\sd6lab.genruntimeconfig.cache
+C:\Users\nate_higgers\Desktop\Visual Studio\sd6lab\obj\Debug\net7.0\ref\sd6lab.dll
