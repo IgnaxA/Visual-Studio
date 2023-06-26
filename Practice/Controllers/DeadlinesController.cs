@@ -27,7 +27,6 @@ namespace Practice.Controllers
         {
             DeadlinesViewModel deadline = new DeadlinesViewModel();
             deadline.getTeacher = await _teachers.GetEntityDeadline(1);
-
             return View(deadline);
         }
 

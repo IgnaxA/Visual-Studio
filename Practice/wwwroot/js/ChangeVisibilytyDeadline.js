@@ -111,4 +111,37 @@ $(document).ready(function () {
             }
         }
     };
+
+    document.getElementById("ConsultationFilter").onchange = function () {
+        if (document.getElementById("ConsultationsTable") === null) {
+            return;
+        }
+
+        var selectedValue = document.getElementById("ConsultationFilter");
+
+        var selectedOption = selectedValue.options[selectedValue.selectedIndex];
+
+        var selectedValue = selectedOption.getAttribute("data-selectedValue");
+
+        var studentsTableRow = document.getElementById("ConsultationsTable");
+        var rows = studentsTableRow.getElementsByTagName("tr");
+
+        if (selectedValue === "Нет") {
+            for (var i = 0; i < rows.length; ++i) {
+                rows[i].style.display = 'table-row';
+            }
+            return;
+        }
+
+        for (var i = 1; i < rows.length; i++) {
+            var temp = rows[i].getAttribute("data-selectedValue");
+            var temp2 = selectedValue;
+            if (rows[i].getAttribute("data-selectedValue") === selectedValue) {
+                rows[i].style.display = 'table-row';
+            }
+            else {
+                rows[i].style.display = 'none';
+            }
+        }
+    };
 });
